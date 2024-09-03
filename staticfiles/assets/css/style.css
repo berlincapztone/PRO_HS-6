@@ -1,0 +1,116 @@
+.main-banner {
+    background-image: url('{% static "images/joe.jpg" %}');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 236px 0 130px;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-banner:after {
+    content: '';
+    background-image: url('{% static "images/joe.jpg" %}');
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 267px;
+    height: 532px;
+    z-index: 1;
+}
+
+.main-banner:before {
+    content: '';
+    background-image: url('{% static "images/joe.jpg" %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    width: 819px;
+    height: 674px;
+    z-index: 1;
+}
+
+.main-banner .item {
+    margin-right: 45px;
+    position: relative;
+    z-index: 2;
+}
+
+.main-banner .item h6 {
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #ff695f;
+    margin-bottom: 15px;
+}
+
+.main-banner .item h2 {
+    font-size: 50px;
+    font-weight: 700;
+    color: #2a2a2a;
+    line-height: 72px;
+}
+
+.main-banner .item h2 em {
+    color: #03a4ed;
+    font-style: normal;
+}
+
+.main-banner .item h2 span {
+    color: #ff695f;
+}
+
+.main-banner .item p {
+    margin: 20px 0;
+}
+
+.main-banner .item .down-buttons {
+    display: inline-flex;
+}
+
+.main-banner .item .down-buttons .call-button i {
+    margin-right: 5px;
+    width: 46px;
+    height: 46px;
+    display: inline-block;
+    text-align: center;
+    line-height: 46px;
+    border-radius: 50%;
+    background: rgb(255,104,95);
+    background: linear-gradient(105deg, rgba(255,104,95,1) 0%, rgba(255,144,104,1) 100%);
+    color: #fff;
+    font-size: 20px;
+}
+
+.main-banner .item .down-buttons .call-button a {
+    color: #ff695f;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 30px;
+}
+
+.main-banner .owl-dots {
+    margin-top: 60px;
+    counter-reset: dots;
+}
+
+.main-banner .owl-dot:before {
+    counter-increment: dots;
+    content: counter(dots);
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 10px;
+    color: #2a2a2a;
+    width: 15px;
+    display: inline-block;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    transition: all .5s;
+}
+
+.main-banner .owl-dot.active:before {
+    color: #c6d613;
+    border-bottom: 3px solid #ff685f;
+}
