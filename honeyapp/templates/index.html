@@ -1,0 +1,1489 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Honey Web</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.default.min.css">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animated.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <script src="{% static 'path_to/owl.carousel.min.js' %}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        .carousel-slide {
+            flex: 0 0 100%;
+            box-sizing: border-box;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .carousel-slide .content-wrapper {
+            position: relative;
+            background: rgba(256, 256, 256, 0.5);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .carousel-slide::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            filter: blur(10px);
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+
+        .video {
+            position: relative;
+            overflow: hidden;
+            background: 
+                linear-gradient(rgba(245, 198, 102, 0.7), rgba(245, 198, 102, 1.5)), 
+                url('{% static "assets/images/two.jpg" %}') center center / cover no-repeat;
+        }
+        
+        /* Pseudo-element for the wave effect */
+        .video::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2); /* White overlay with opacity */
+            pointer-events: none; /* Make sure it doesn't block interactions */
+            animation: waveEffect 10s infinite linear; /* Apply the animation */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Full area */
+        }
+        
+        /* Keyframes for the wave effect */
+        @keyframes waveEffect {
+            0% {
+                transform: translateY(0); /* Start position */
+            }
+            50% {
+                transform: translateY(-20px); /* Middle position */
+            }
+            100% {
+                transform: translateY(0); /* End position */
+            }
+        }
+        
+        
+        
+        .btn-play {
+            position: relative;
+            display: block;
+            box-sizing: content-box;
+            width: 65px;
+            height: 75px;
+            border-radius: 100%;
+            border: none;
+            outline: none !important;
+            padding: 28px 30px 30px 38px;
+            background: #FFFFFF;
+            cursor: pointer;
+        }
+        
+        .btn-play:before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            display: block;
+            width: 120px;
+            height: 120px;
+            background: #FFFFFF;
+            border-radius: 100%;
+            animation: pulse-border 1500ms ease-out infinite;
+        }
+        
+        .btn-play:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            display: block;
+            width: 120px;
+            height: 120px;
+            background: #FFFFFF;
+            border-radius: 100%;
+            transition: all 200ms;
+        }
+        
+        .btn-play span {
+            display: block;
+            position: relative;
+            z-index: 3;
+            width: 0;
+            height: 0;
+            left: 13px;
+            border-left: 40px solid #d89c03; /* Honey color for the play icon */
+            border-top: 28px solid transparent;
+            border-bottom: 28px solid transparent;
+        }
+        
+        @keyframes pulse-border {
+            0% {
+                transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+                opacity: 1;
+            }
+    
+            100% {
+                transform: translateX(-50%) translateY(-50%) translateZ(0) scale(2);
+                opacity: 0;
+            }
+        }
+        
+        .modal-video .modal-dialog {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .modal-video .modal-body {
+            padding: 0;
+        }
+        
+        .modal-video .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            background: none;
+            border: none;
+        }
+        
+        .modal-video .ratio-16x9 {
+            width: 100%;
+            padding-bottom: 59.25%;
+            position: relative;
+        }
+        
+        .modal-video .ratio-16x9 video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+        
+        .modal-video .close {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: 10px;
+            top: 10px;
+            z-index: 999;
+            font-size: 30px;
+            font-weight: normal;
+            color: #FFFFFF;
+            background: #000000;
+            opacity: 1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }    
+      
+
+        @keyframes arrowAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .arrow {
+            display: inline-block;
+            font-size: 2rem;
+            color: #FBBF24; /* Tailwind yellow-400 */
+            animation: arrowAnimation 1s infinite;
+        }
+        .blog-container {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem;
+        }
+        
+        .blog-card {
+            flex: 0 0 auto;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: 480px;
+            transition: transform 0.3s ease-in-out;
+            width: 300px;
+        }
+        
+        .blog-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-card-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 1rem;
+        }
+        
+        .blog-card h2 {
+            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #e77f3f;
+        }
+        
+        .blog-card h1 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFB81C;
+        }
+        
+        .blog-card p {
+            margin-bottom: 0.5rem;
+            color: #6b7280;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .learn-more-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #FFB81C;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease-in-out;
+            text-decoration: none;
+        }
+        
+        .learn-more-btn:hover {
+            background-color: #e77f3f;
+        }
+        
+        @media (max-width: 1024px) {
+            .blog-card {
+                width: 100%;
+            }
+        }
+        
+        /* Base styles for the button */
+        .learn-more-btn {
+            display: inline-block; /* Ensures the button is inline */
+            margin-top: 1rem; /* mt-4 */
+            padding: 0.5rem 1.5rem; /* py-2 px-4 */
+            background-color: #FBBF24; /* bg-yellow-500 */
+            color: #000; /* text-black */
+            border-radius: 100px; /* rounded-full */
+            text-align: center;
+            margin-right:140px;
+            text-decoration: none;
+            font-weight: 500; /* Optional: adjust font weight */
+            transition: background-color 0.3s ease;
+            width: auto; /* Adjust width based on content */
+            height: 40px;
+            line-height: 40px; /* Ensures text is centered vertically */
+            padding-left: 1rem; /* Add padding if needed for alignment */
+            padding-right: 1rem; /* Add padding if needed for alignment */
+            white-space: nowrap; /* Prevents text from wrapping */
+            display: flex; /* Use flexbox to center text horizontally */
+            align-items: center; /* Center text vertically */
+            justify-content: center; /* Center text horizontally */
+        }
+        
+        /* Hover effect */
+        .learn-more-btn:hover {
+            background-color: #F59E0B; /* bg-yellow-600 */
+        }
+        
+        .testimonials { 
+            position: relative;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 50px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            right: 0; 
+            left: 0; 
+            top: 0; 
+            bottom: 0;
+            background: rgba(255,216,50,.7);
+        }
+        .testimonials .title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding: 20px 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .testimonials .title h5 {
+            color: #EB6D2F;
+            line-height: 1.2em;
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: -3px;
+        }
+        .testimonials .title h2 {
+            color: #5A3733;
+            line-height: 1.2em;
+            font-weight: 900;
+            font-size: 41px;
+            letter-spacing: -1px;
+            margin: 0;
+        }
+        .testimonials .testi .item {
+            background: #fff;
+            padding: 50px 30px;
+            border-radius: 15px;
+        }
+        .testimonials .testi .item .profile {
+            display: flex;
+            padding-left: 15px;
+        }
+        .testimonials .testi .item .profile img {
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+        .testimonials .testi .item .profile .information {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        .testimonials .testi .item .profile .information .stars i {
+            color: #ffd832;
+        }
+        .testimonials .testi .item .profile .information p {
+            font-size: 24px;
+            margin: 0px auto 0px;
+            color: #5A3733;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .testimonials .testi .item .profile .information span {
+            color: #EB6D2F;
+            font-weight: bold;
+            margin-top: -4px;
+            line-height: 1.6em;
+            font-size: 14px;
+        }
+        .testimonials .testi .item > p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6em;
+            display: block;
+            z-index: 2;
+            font-style: italic;
+            color: #5A3733;
+            text-align: center;
+        }
+        .testimonials .testi .item .icon {
+            text-align: center;
+        }
+        .testimonials .testi .item .icon i {
+            font-size: 32px;
+            color: #FFD832;
+        }
+        
+
+        @keyframes slide {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+          
+          .animate-slide {
+            animation: slide 15s linear infinite;
+          }
+
+          /* Clients Section Styles */
+          #clients {
+              background: #FFF;
+              text-align: center;
+              padding: 50px 0;
+          }
+  
+          .clients-carousel .item figure {
+              margin: 10px;
+              width: 150px;
+              margin: 0 auto;
+          }
+  
+          .clients-carousel .item figure img {
+              display: block;
+              margin: 0 auto;
+              opacity: 0.5;
+              transition: opacity 0.3s ease;
+          }
+  
+          .clients-carousel .item figure img:hover {
+              opacity: 1;
+          }
+  
+          /* Owl Carousel Navigation Button Styles */
+          .owl-nav .nav-button {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              background-color: #d89c03; /* Background color */
+              color: white; /* Text color */
+              border-radius: 50%; /* Round shape */
+              padding: 10px; /* Padding around the button */
+              font-size: 20px; /* Font size for arrows */
+              cursor: pointer; /* Pointer cursor on hover */
+              box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+              transition: all 0.3s ease; /* Smooth transition */
+          }
+  
+          .owl-nav .owl-prev {
+              left: -40px; /* Positioning left button */
+          }
+  
+          .owl-nav .owl-next {
+              right: -40px; /* Positioning right button */
+          }
+  
+          .owl-nav .nav-button:hover {
+              background-color: #f7b900; /* Change background on hover */
+              box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+              transform: translateY(-50%) scale(1.1); /* Slight scale on hover */
+          }
+
+
+          #contact {
+            background: url('{% static "assets/images/joqq.jpg" %}')  no-repeat center center; /* Adjust path to your image */
+            background-size: cover; /* Ensure the image covers the entire section */
+            padding: 5rem 0; /* Adjust padding as needed */
+        }
+
+          /* Animation for the Image */
+          @keyframes bounce {
+              0%, 20%, 50%, 80%, 100% {
+                  transform: translateY(0);
+              }
+              40% {
+                  transform: translateY(-20px);
+              }
+              60% {
+                  transform: translateY(-10px);
+              }
+          }
+          
+          .animated-image {
+              animation: bounce 2s infinite;
+          }
+          
+          /* Input Fields and Button Styling */
+          .form-control {
+              min-height: 52px;
+              padding: 15px;
+              font-size: 16px;
+              color: hsl(59, 89%, 48%);
+              border-radius: 0.65rem;
+              border: 1px solid #efec80;
+              background: #ffffff; /* Ensure the background is white */
+              box-shadow: 0 8px 13px rgba(0, 0, 0, 0.1); /* Slight shadow */
+              transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+          }
+          
+          .form-control:focus {
+              border-color: #d89c03 !important; /* Honey color border on focus */
+              outline: none !important;
+              background: #efec80 !important; /* Light yellow background when focused */
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important; /* Stronger shadow on focus */
+          }
+          
+          textarea.form-control {
+              resize: none;
+          }
+          
+          .btn-primary {
+              transition: transform 0.3s ease-in-out;
+          }
+          
+          .btn-primary:hover {
+              transform: scale(1.05);
+          }
+          
+          /* Adjust heading margin */
+          .section-title {
+              margin-top: 20px; /* Adjust this value as needed */
+          }
+          
+          
+          
+          .footer {
+            background: url('{% static "assets/images/footer.jpg" %}') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5); /* Light white overlay */
+            z-index: 0; /* Behind content */
+        }
+    
+        .footer .container {
+            position: relative;
+            z-index: 1; /* Above overlay */
+        }
+    
+        .footer .footer-item a {
+            line-height: 35px;
+            color: var(--bs-dark); /* Dark color */
+            transition: 0.5s;
+        }
+    
+        .footer .footer-item p {
+            line-height: 35px;
+        }
+    
+        .footer .footer-item a:hover {
+            letter-spacing: 1px;
+            color: var(--bs-primary);
+        }
+    
+        .footer .btn-primary {
+            background-color: #d89c03; /* Yellow color */
+            border-color: #d89c03;
+        }
+    
+        .footer .btn-primary:hover {
+            background-color: #b78102; /* Darker yellow */
+            border-color: #b78102;
+            color: white;
+        }
+    
+        .footer-item img {
+            width: 50px;
+            height: auto;
+        }
+    
+        .footer-item h3 {
+            margin-bottom: 0;
+        }
+  
+    
+
+      </style>
+
+          
+   
+</head>
+
+<body>
+ 
+
+
+<!-- Pre-header Starts -->
+<div class="bg-yellow-300 py-2">
+    <div class="container mx-auto flex flex-wrap justify-between items-center text-sm text-gray-600">
+        <div class="flex flex-wrap space-x-4 mb-2 md:mb-0">
+            <a href="#" class="flex items-center hover:text-gray-800"><i class="fa fa-envelope mr-2"></i> honey@gmail.com</a>
+            <a href="#" class="flex items-center hover:text-gray-800"><i class="fa fa-phone mr-2"></i> 1234567890</a>
+        </div>
+        <div class="flex flex-wrap space-x-4">
+            <a href="#" class="hover:text-gray-800"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="hover:text-gray-800"><i class="fa fa-behance"></i></a>
+            <a href="#" class="hover:text-gray-800"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="hover:text-gray-800"><i class="fa fa-dribbble"></i></a>
+        </div>
+    </div>
+</div>
+<!-- Pre-header End -->
+
+<!-- Header Area Start -->
+<header class="bg-white shadow-md sticky top-0 z-40">
+    <div class="container mx-auto flex flex-wrap items-center justify-between h-20 px-4">
+        <a href="index.html" class="flex-shrink-0">
+            <img src="{% static 'assets/images/large.png' %}" alt="Honey Logo" width="100" height="100">
+        </a>
+        <button id="menu-toggle" class="navbar-toggler md:hidden flex items-center px-3 py-2 border rounded border-gray-600 text-gray-600 hover:text-gray-800 focus:outline-none">
+            <i class="fa fa-bars"></i>
+        </button>
+        <ul class="hidden md:flex flex-1 justify-center space-x-6 text-yellow-800 font-semibold uppercase items-center">
+            <li><a href="{% url 'landing_page' %}" class="hover:text-yellow-700">Home</a></li>
+            <li><a href="{% url 'honey_page' %}" class="hover:text-yellow-700">Honey</a></li>
+            <li><a href="{% url 'pro_page' %}" class="hover:text-yellow-700">Honey Product</a></li>
+            <li><a href="{% url 'coc_page' %}" class="hover:text-yellow-700">Coconut Product</a></li>
+            <li><a href="{% url 'oil_page' %}" class="hover:text-yellow-700">Oil</a></li>
+            <li><a href="{% url 'spices_page' %}" class="hover:text-yellow-700">Spices</a></li>
+        </ul>
+        
+        <div class="hidden md:flex space-x-4 text-yellow-800 items-center">
+            <a href="#" class="hover:text-yellow-700"><i class="fa fa-search"></i></a>
+            <a href="#" class="hover:text-yellow-700"><i class="fa fa-shopping-cart"></i></a>
+            <a href="#" class="hover:text-yellow-700"><i class="fa fa-shopping-bag"></i></a>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+        <ul class="flex flex-col space-y-2 bg-white text-yellow-800 font-semibold uppercase">
+            <li><a href="{% url 'landing_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Home</a></li>
+            <li><a href="{% url 'honey_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Honey</a></li>
+            <li><a href="{% url 'pro_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Honey Product</a></li>
+            <li><a href="{% url 'coc_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Coconut Product</a></li>
+            <li><a href="{% url 'oil_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Oil</a></li>
+            <li><a href="{% url 'spices_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Spices</a></li>
+        </ul>
+    </div>
+</header>
+<!-- Header Area End -->
+
+
+<!-- Carousel Section -->
+<section class="relative overflow-hidden">
+    <div id="carousel" class="carousel">
+        <div class="carousel-inner flex transition-transform duration-500">
+            <!-- Slide 1 -->
+            <div class="carousel-slide flex-shrink-0 w-full" style="background-image: url('{% static 'assets/images/' %}');">
+                <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-100 bg-cover bg-center relative">
+                    <div class="text-left mb-4 md:mb-0 md:w-1/2">
+                        <h2 class="text-2xl md:text-3xl text-yellow-600 uppercase mb-2">Pure Honey</h2>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">From Hive to Home, <span class="text-yellow-700"></span> <br>   <span class="text-yellow-500">Naturally </span></h1>
+                        <p class="text-gray-700 mb-4"> Focuses on the journey of honey from the hive directly to the consumer’s table, ensuring natural quality and purity every step of the way.</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-yellow-600 text-white px-4 py-2 rounded-full">Shop Now</button>
+                        </div>
+                    </div>
+                    <img src="{% static 'assets/images/hon cou.png' %}" alt="Honey Image" class="object-cover rounded-lg w-full md:w-1/2 h-90 md:h-90 -mt-8"/>
+
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide flex-shrink-0 w-full" style="background-image: url('{% static 'assets/images/' %}');">
+                <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-200 bg-cover bg-center relative">
+                    <div class="text-left mb-4 md:mb-0 md:w-1/2">
+                        <h2 class="text-2xl md:text-3xl text-yellow-600 uppercase mb-2">Spices</h2>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4">A Little Bit Of  <br>  <span class="text-yellow-500">Spices</span></h1>
+                        <p class="text-gray-700 mb-4"> Spices create the essence of life. They have the power to transform a simple meal into a sensory experience</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-yellow-600 text-white px-4 py-2 rounded-full">shop now</button>
+                        </div>
+                    </div>
+                    <img src="{% static 'assets/images/spices cou.png' %}" alt="Honey Image" class="object-cover rounded-lg w-full md:w-1/2 h-90 md:h-90 -mt-8"/>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide flex-shrink-0 w-full" style="background-image: url('{% static 'assets/images/' %}');">
+                <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-300 bg-cover bg-center relative">
+                    <div class="text-left mb-4 md:mb-0 md:w-1/2">
+                        <h2 class="text-2xl md:text-3xl text-yellow-600 uppercase mb-2">Coconuts</h2>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Coconuts <br>The tree  <span class="text-yellow-500">of Life</span></h1>
+                        <p class="text-gray-700 mb-4">Savor the rich flavors of honey produced with care by our hardworking bees.</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-yellow-600 text-white px-4 py-2 rounded-full">show now</button>
+                        </div>
+                    </div>
+                    <img src="{% static 'assets/images/coc cou.png' %}" alt="Honey Image" class="object-cover rounded-lg w-full md:w-1/2 h-90 md:h-90 -mt-8"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container mx-auto p-8">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+        <!-- Left Section: Text Content -->
+        <div class="w-full md:w-1/3">
+            <h2 class="text-orange-600 text-xl font-bold">Information</h2>
+            <h1 class="text-4xl font-extrabold text-brown-900 mt-2">About honey</h1>
+            <div class="mt-2 mb-4">
+                <span class="block w-16 h-1 bg-yellow-400"></span>
+            </div>
+            <p class="text-gray-600 mb-6">
+                Suspendisse mattis enim velit. Maecenas egestas mi auctor tortor imperdiet, ut bibendum arcu faucibus. Pellentesque malesuada erat eget felis consectetur laoreet. Nullam eu nunc aliquet, maximus magna nec, placerat tellus.
+            </p>
+            <button class="bg-yellow-500 text-white py-2 px-4 rounded-full hover:bg-yellow-600 transition duration-300">Read more</button>
+        </div>
+
+        <!-- Center Section: Image Centered Vertically -->
+        <div class="w-full md:w-1/3 flex justify-center items-center">
+            <div class="relative">
+                <img src="{% static 'assets/images/mm.png' %}" alt="Honey and honeycomb" class="w-full max-w-sm h-auto">
+                <div class="absolute top-0 right-0 bg-orange-600 text-white font-bold p-2 rounded-full text-center transform translate-x-1/4 -translate-y-1/4">
+                    100% <br> organic product
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section: Tick Options -->
+        <div class="w-full md:w-1/3">
+            <ul class="space-y-4">
+                <li class="flex items-start">
+                    <span class="text-2xl font-bold mr-4" style="color: #facc15;">✔</span> <!-- Yellow color -->
+                    <span class="text-gray-700">regulates <span class="font-bold">metabolic processes</span></span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-2xl font-bold mr-4" style="color: #f59e0b;">✔</span> <!-- Orange color -->
+                    <span class="text-gray-700">increases <span class="font-bold">immunity</span></span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-2xl font-bold mr-4" style="color: #facc15;">✔</span> <!-- Yellow color -->
+                    <span class="text-gray-700"><span class="font-bold">honey improves</span> blood composition</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-2xl font-bold mr-4" style="color: #f59e0b;">✔</span> <!-- Yellow color -->
+                    <span class="text-gray-700">helps to cope with <span class="font-bold">insomnia</span></span>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-2xl font-bold mr-4" style="color: #facc15;">✔</span> <!-- Yellow color -->
+                    <span class="text-gray-700">gives energy to the body, restores <span class="font-bold">strength</span></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Video Start -->
+<div class="container-fluid video my-5">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-6 py-5 wow fadeIn" data-wow-delay="0.1s">
+                <div class="py-5">
+                    <!-- The Honey Farm heading with bigger font size and honey color -->
+                    <h1 class="display-6 mb-4" style="color: #d89c03; font-size: 4rem; font-weight: bold;">THE HONEY FARM</h1>
+                    
+                    <h5 class="fw-normal lh-base fst- text-white mb-5">Our honey from the Western Ghats is packed with the nutrients of local blooms, untouched by harsh processing. Every jar offers a taste of nature, crafted by our hardworking bees.</h5>
+                    
+                    <div class="row g-4 mb-5">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <!-- Check mark with honey color -->
+                                <div class="flex-shrink-0 btn-lg-square bg-white" style="color: #d89c03; border: 2px solid #d89c03; border-radius: 50%;">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <span class="text-dark ms-3">Raw, unpasteurized honey with natural goodness</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <!-- Check mark with honey color -->
+                                <div class="flex-shrink-0 btn-lg-square bg-white" style="color: #d89c03; border: 2px solid #d89c03; border-radius: 50%;">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <span class="text-dark ms-3">Unique flavors influenced by the season's nectar</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <!-- Check mark with honey color -->
+                                <div class="flex-shrink-0 btn-lg-square bg-white" style="color: #d89c03; border: 2px solid #d89c03; border-radius: 50%;">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <span class="text-dark ms-3">Exceptional taste, unmatched by mass-produced honey</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <!-- Check mark with honey color -->
+                                <div class="flex-shrink-0 btn-lg-square bg-white" style="color: #d89c03; border: 2px solid #d89c03; border-radius: 50%;">
+                                    <i class="fa fa-check"></i>
+                                </div>
+                                <span class="text-dark ms-3">Good for health & beauty</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Explore More button with honey color -->
+                    <a class="btn rounded-pill py-3 px-5" href="" style="background-color: #d89c03; color: white;">Explore More</a>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="h-100 d-flex align-items-center justify-content-center" style="min-height: 300px;">
+                    <button type="button" class="btn-play" data-bs-toggle="modal" data-bs-target="#videoModal">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Video End -->
+
+<!-- Video Modal Start -->
+<div class="modal modal-video fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Adjusted modal size -->
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Honey Farm Video</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- 4:3 aspect ratio for better fit, or adjust/remove as needed -->
+                <div class="ratio ratio-4x3">
+                    <video style="width: 100%; height: auto;" controls> <!-- Manual width/height -->
+                        <source src="{% static 'assets/video/champ.mp4' %}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Video Modal End -->
+
+
+<!-- flow -->
+<div class="bg-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            <!-- Step 1 -->
+            <div>
+                <img src="{% static 'assets/images/how-1.png' %}" alt="Flower Image" class="mx-auto mb-4">
+                <h2 class="text-yellow-600 font-bold text-lg flex items-center justify-center">
+                    <span class="arrow mr-2 text-red-600 text-2xl">→</span>
+                    <span>Flowers produce nectar and attract our bees</span>
+                </h2>
+                <p class="text-gray-600">Suspendisse mattis enim velit. Maecenas egestas mi auctor tortor imperdiet.</p>
+            </div>
+            <!-- Step 2 -->
+            <div>
+                <img src="{% static 'assets/images/how-2.png' %}" alt="Bees Collecting Nectar" class="mx-auto mb-4">
+                <h2 class="text-yellow-600 font-bold text-lg flex items-center justify-center">
+                    <span class="arrow mr-2 text-red-600 text-2xl">→</span>
+                    <span>Bees collect the nectar and carry it to the beehive</span>
+                </h2>
+                <p class="text-gray-600">Suspendisse mattis enim velit. Maecenas egestas mi auctor tortor imperdiet.</p>
+            </div>
+            <!-- Step 3 -->
+            <div>
+                <img src="{% static 'assets/images/how-3.png' %}" alt="Beehive" class="mx-auto mb-4">
+                <h2 class="text-yellow-600 font-bold text-lg flex items-center justify-center">
+                    <span class="arrow mr-2 text-red-600 text-2xl">→</span>
+                    <span>Bees seal cells with wax and honey ripens</span>
+                </h2>
+                <p class="text-gray-600">Suspendisse mattis enim velit. Maecenas egestas mi auctor tortor imperdiet.</p>
+            </div>
+            <!-- Step 4 -->
+            <div>
+                <img src="{% static 'assets/images/how-4.png' %}" alt="Honey Jar" class="mx-auto mb-4">
+                <h2 class="text-yellow-600 font-bold text-lg flex items-center justify-center">
+                    <span class="arrow mr-2 text-red-600 text-2xl">→</span>
+                    <span>We collect the product and transfer it to the packaging</span>
+                </h2>
+                <p class="text-gray-600">Suspendisse mattis enim velit. Maecenas egestas mi auctor tortor imperdiet.</p>
+            </div>
+        </div>
+        <div class="mt-8 text-center">
+
+            <button class="bg-gradient-to-r from-yellow-600 via-yellow-500 to-red-600 text-white py-2 px-6 rounded-full hover:from-yellow-500 hover:via-yellow-400 hover:to-red-500 transition duration-300 ease-in-out">
+                Learn More
+              </button>
+                
+            
+        </div>
+    </div>
+</div>
+<!-- flow End -->
+
+
+<section class="w-screen py-20">
+    <h1 class="mb-12 text-center font-sans text-5xl font-bold" style="color: #FFB81C;">Recent Article</h1>
+
+    <div class="blog-container">
+
+        <article class="blog-card" style="margin-left:120px;"  >
+            <img src="{% static 'assets/images/blog1.jpg' %}" alt="blog" />
+            <div class="blog-card-content">
+                <h2 class="title-font">Cities</h2>
+                <h1 class="title-font">This season, increased yield of honey</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <div class="blog-card-footer">
+                    <span>Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                        3.5K
+                    </span>
+                </div>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+        </article>
+
+        <article class="blog-card" style="margin-left:70px;" >
+            <img src="{% static 'assets/images/blog2.jpg' %}" alt="blog" />
+            <div class="blog-card-content">
+                <h2 class="title-font">Cities</h2>
+                <h1 class="title-font">Our beekeepers begin to collect honey</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <div class="blog-card-footer">
+                    <span>Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                        3.5K
+                    </span>
+                </div>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+        </article>
+
+        <article class="blog-card" style="margin-left:70px;"  >
+            <img src="{% static 'assets/images/blog3.jpg' %}" alt="blog" />
+            <div class="blog-card-content">
+                <h2 class="title-font">Cities</h2>
+                <h1 class="title-font">Definitions of honey naturalness</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <div class="blog-card-footer">
+                    <span>Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                        </svg>
+                        3.5K
+                    </span>
+                </div>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+        </article>
+
+ 
+
+    </div>
+</section>
+
+
+
+<!-- Start clients -->
+<section id="clients" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="title-box text-center">
+                <h2 class="title" style="color: #d89c03; font-size: 26px; font-weight: bold;">Our Certificate</h2>
+
+            </div>
+            <br>
+            <br>
+            <div class="clients-carousel owl-carousel">
+                <!-- Clients Logo Item-->
+                <div class="item">
+                    <a href="#">
+                        <figure>
+                            <img src="{% static 'assets/images/cl1.png' %}" alt="Client Logo" />
+                        </figure>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <figure>
+                            <img src="{% static 'assets/images/clients-logo-2.png' %}" alt="Client Logo" />
+                        </figure>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <figure>
+                            <img src="{% static 'assets/images/clients-logo-3.png' %}" alt="Client Logo" />
+                        </figure>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#">
+                        <figure>
+                            <img src="{% static 'assets/images/clients-logo-4.png' %}" alt="Client Logo" />
+                        </figure>
+                    </a>
+                </div>
+                <!-- Repeat similar blocks for other client logos -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End clients -->
+
+
+<section class="py-12">
+    <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-semibold text-yellow-600">We Believe In</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+        <!-- Card 1 -->
+        <div class="text-center">
+            <img src="{% static 'assets/images/wood.jpg' %}" alt="Authenticity Icon" class="mx-auto mb-4 h-24">
+            <h3 class="text-xl font-bold mb-2 text-yellow-600">AUTHENTICITY</h3>
+            <p class="text-gray-700">Bringing the purest form of food directly from the farms.</p>
+            <p class="text-gray-700">We ensure every product is as close to nature as possible.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="text-center">
+            <img src="{% static 'assets/images/butter.jpg' %}" alt="Tradition Icon" class="mx-auto mb-4 h-24">
+            <h3 class="text-xl font-bold mb-2 text-yellow-600">TRADITION</h3>
+            <p class="text-gray-700">Harnessing age-old wisdom passed down by Grandmas.</p>
+            <p class="text-gray-700">We blend traditional methods with modern expertise.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="text-center">
+            <img src="{% static 'assets/images/butter 3.jpg' %}" alt="Purpose Icon" class="mx-auto mb-4 h-24">
+            <h3 class="text-xl font-bold mb-2 text-yellow-600">PURPOSE</h3>
+            <p class="text-gray-700">Empowering rural India with employment and fair trade.</p>
+            <p class="text-gray-700">Our mission is to uplift communities through ethical practices.</p>
+        </div>
+    </div>
+</section>
+
+
+
+  
+  <br>
+  <br>
+  <section class="testimonials" style="background-image: url('https://images.unsplash.com/photo-1580912458702-6fa698fc553e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');">
+    <div class="container">
+        <div class="title">
+            <h5>Testimonials</h5>
+            <h2> our user say</h2>
+        </div>
+        <div class="owl-carousel owl-theme testi">
+            <!-- Single Testimonial Starts -->
+            <div class="item">
+                <div class="profile">
+                    <img src="https://images.unsplash.com/photo-1521225099409-8e1efc95321d?ixlib=rb-1.2.1&auto=format&fit=crop&h=153&q=80" alt="">
+                    <div class="information">
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>berlin joe</p>
+                        <span>user</span>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita velit labore suscipit distinctio, officiis deserunt rem blanditiis ducimus. Voluptate quaerat assumenda qui veniam facilis doloribus maiores impedit ducimus cum accusamus.</p>
+                <div class="icon">
+                    <i class="fa fa-quote-right" aria-hidden="true"></i>
+                </div>
+            </div>
+            <!-- Single Testimonial Ends -->
+            <div class="item">
+                <div class="profile">
+                    <img src="https://images.unsplash.com/photo-1521225099409-8e1efc95321d?ixlib=rb-1.2.1&auto=format&fit=crop&h=153&q=80" alt="">
+                    <div class="information">
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>shyni</p>
+                        <span>user</span>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita velit labore suscipit distinctio, officiis deserunt rem blanditiis ducimus. Voluptate quaerat assumenda qui veniam facilis doloribus maiores impedit ducimus cum accusamus.</p>
+                <div class="icon">
+                    <i class="fa fa-quote-right" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="profile">
+                    <img src="https://images.unsplash.com/photo-1521225099409-8e1efc95321d?ixlib=rb-1.2.1&auto=format&fit=crop&h=153&q=80" alt="">
+                    <div class="information">
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>shylas</p>
+                        <span>user</span>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita velit labore suscipit distinctio, officiis deserunt rem blanditiis ducimus. Voluptate quaerat assumenda qui veniam facilis doloribus maiores impedit ducimus cum accusamus.</p>
+                <div class="icon">
+                    <i class="fa fa-quote-right" aria-hidden="true"></i>
+                </div>
+            </div>
+
+ <div class="item">
+                <div class="profile">
+                    <img src="https://images.unsplash.com/photo-1521225099409-8e1efc95321d?ixlib=rb-1.2.1&auto=format&fit=crop&h=153&q=80" alt="">
+                    <div class="information">
+                        <div class="stars">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p>joe</p>
+                        <span>user</span>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita velit labore suscipit distinctio, officiis deserunt rem blanditiis ducimus. Voluptate quaerat assumenda qui veniam facilis doloribus maiores impedit ducimus cum accusamus.</p>
+                <div class="icon">
+                    <i class="fa fa-quote-right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   
+
+<section id="contact" class="section py-5">
+    <!-- Container Starts -->
+    <div class="container">
+        <!-- Section Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="section-title text-3xl font-bold text-yellow-800 mb-4">Get In Touch</h2>
+            </div>
+        </div>
+
+        <!-- Start Row -->
+        <div class="row align-items-center">
+            <!-- Start Col (Form) -->
+            <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                <form id="contactForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-4">
+                                <input type="text" class="form-control shadow-lg focus:shadow-2xl focus:ring-0 focus:border-[#d89c03] focus:outline-none rounded-full" id="name" name="name" placeholder="Name" required data-error="Please enter your name">
+                                <div class="help-block with-errors"></div>
+                            </div>                                 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-4">
+                                <input type="text" placeholder="Subject" id="msg_subject" class="form-control shadow-lg focus:shadow-2xl focus:ring-0 focus:border-[#d89c03] focus:outline-none rounded-full" name="msg_subject" required data-error="Please enter your subject">
+                                <div class="help-block with-errors"></div>
+                            </div> 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-4">
+                                <input type="email" class="form-control shadow-lg focus:shadow-2xl focus:ring-0 focus:border-[#d89c03] focus:outline-none rounded-full" id="email" name="email" placeholder="Email" required data-error="Please enter your Email">
+                                <div class="help-block with-errors"></div>
+                            </div>                                 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-4">
+                                <input type="text" placeholder="Budget" id="budget" class="form-control shadow-lg focus:shadow-2xl focus:ring-0 focus:border-[#d89c03] focus:outline-none rounded-full" name="budget" required data-error="Please enter your Budget">
+                                <div class="help-block with-errors"></div>
+                            </div> 
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-4"> 
+                                <textarea class="form-control shadow-lg focus:shadow-2xl focus:ring-0 focus:border-[#d89c03] focus:outline-none rounded-lg" id="message" name="message" placeholder="Write Message" rows="4" data-error="Write your message" required></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="submit-button">
+                                <button class="btn btn-primary shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105" id="submit" type="submit" style="background-color: #d89c03; border-color: #d89c03; border-radius: 50px; color: white;">Submit</button>
+                                <div id="msgSubmit" class="h3 hidden"></div> 
+                                <div class="clearfix"></div> 
+                            </div>
+                        </div>
+                    </div>            
+                </form>
+            </div>
+            <!-- End Col (Form) -->
+            <!-- Start Col (Image) -->
+            <div class="col-lg-6 col-md-12 text-center">
+                <div class="contact-img">
+                    <img src="{% static 'assets/images/joe.png' %}" class="img-fluid mx-auto animated-image" alt="Contact Image" style="max-width: 80%; height: auto; margin-bottom:120px;">
+                </div>
+            </div>
+            <!-- End Col (Image) -->
+        </div>
+        <!-- End Row -->
+    </div>
+    <!-- Container Ends -->
+</section>
+
+    
+<div class="container-fluid footer bg-light py-5 wow fadeIn" data-wow-delay="0.2s">
+    <div class="container py-5">
+        <div class="row g-5 mb-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="position-relative mx-auto">
+                    <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Email address">
+                    <button type="button" class="btn btn-primary position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                    <a class="btn btn-light btn-md-square me-3" href="">
+                        <i class="fab fa-facebook-f" style="color: #d89c03;"></i>
+                    </a>
+                    <a class="btn btn-light btn-md-square me-3" href="">
+                        <i class="fab fa-twitter" style="color: #d89c03;"></i>
+                    </a>
+                    <a class="btn btn-light btn-md-square me-3" href="">
+                        <i class="fab fa-instagram" style="color: #d89c03;"></i>
+                    </a>
+                    <a class="btn btn-light btn-md-square me-0" href="">
+                        <i class="fab fa-linkedin-in" style="color: #d89c03;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column align-items-center">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="{% static 'assets/images/true.jpg' %}" alt="Electra Logo" class="me-3">
+                        <h3 class="text-dark mb-0">
+                            <i class="fas fa-bee" style="color: #d89c03; margin-right: 8px;"></i>
+                            
+                        </h3>
+                    </div>
+                    <p class="mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est. Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="text-dark mb-4">Quick Links</h4>
+                    <a href="#">Home</a>
+                    <a href="#">About us</a>
+                    <a href="#">Service</a>
+                    <a href="#">Testimonial</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="text-dark mb-4">Honey services</h4>
+                    <a href="#">honey</a>
+                    <a href="#">honey</a>
+                    <a href="#">honey</a>
+                    <a href="#">honey</a>
+                    <a href="#">honey</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="text-dark mb-4">Contact Info</h4>
+                    <a href="#"><i class="fa fa-map-marker-alt" style="color: #d89c03; margin-right: 8px;"></i>123 Street, manjalumoodu</a>
+                    <a href="mailto:info@example.com"><i class="fas fa-envelope" style="color: #d89c03; margin-right: 8px;"></i>info@example.com</a>
+                    <a href="tel:+01234567890"><i class="fas fa-phone" style="color: #d89c03; margin-right: 8px;"></i>+012 345 67890</a>
+                    <a href="tel:+01234567890" class="mb-3"><i class="fas fa-print" style="color: #d89c03; margin-right: 8px;"></i>+012 345 67890</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Swiper JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".clients-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:2
+            },
+            1000:{
+                items:4
+            }
+        },
+        navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"]
+    });
+});
+</script>
+
+
+    <!-- Scripts -->
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${-(index * 100)}%)`;
+            });
+            currentSlide = index;
+        }
+        
+        function nextSlide() {
+            const nextSlide = (currentSlide + 1) % slides.length;
+            showSlide(nextSlide);
+        }
+        
+        // Initialize
+        showSlide(currentSlide);
+        
+        // Auto-slide
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        </script>
+    <!-- JavaScript to Handle Video Playback in Modal -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const videoModal = document.getElementById('videoModal');
+        const videoElement = videoModal.querySelector('video');
+
+        // Play video when modal is shown
+        videoModal.addEventListener('shown.bs.modal', function () {
+            videoElement.play();
+        });
+
+        // Pause video when modal is hidden
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            videoElement.pause();
+            videoElement.currentTime = 0; // Reset video to the beginning
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.testi.owl-carousel').owlCarousel({
+            items: 2,
+            margin: 10,
+            lazyLoad: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                600: {
+                    items: 2,
+                },
+                1000: {
+                    items: 2,
+                }
+            }
+        });
+    });
+</script>
+
+<script>
+// JavaScript for toggling the mobile menu
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    var mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu.classList.toggle('hidden');
+});
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function adjustCardStyles() {
+            const blogCards = document.querySelectorAll('.blog-card');
+            const viewportWidth = window.innerWidth;
+    
+            blogCards.forEach(card => {
+                if (viewportWidth <= 480) { // For small screens
+                    card.style.marginLeft = '0';
+                    card.style.width = '100%'; // Full width
+                } else if (viewportWidth <= 768) { // For tablets
+                    card.style.marginLeft = '10px'; // Adjust spacing
+                    card.style.width = '90%'; // Almost full width
+                } else { // For larger screens
+                    card.style.marginLeft = '70px'; // Original margin
+                    card.style.width = '300px'; // Original width
+                }
+            });
+        }
+    
+        adjustCardStyles(); // Initial call
+        window.addEventListener('resize', adjustCardStyles); // Call on resize
+    });
+    </script>
+    
+
+</body>
+
+</html>

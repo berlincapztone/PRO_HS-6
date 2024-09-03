@@ -1,0 +1,951 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Honey Web</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.default.min.css">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animated.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <script src="{% static 'path_to/owl.carousel.min.js' %}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        .footer {
+            background: url('{% static "assets/images/footer.jpg" %}') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5); /* Light white overlay */
+            z-index: 0; /* Behind content */
+        }
+    
+        .footer .container {
+            position: relative;
+            z-index: 1; /* Above overlay */
+        }
+    
+        .footer .footer-item a {
+            line-height: 35px;
+            color: var(--bs-dark); /* Dark color */
+            transition: 0.5s;
+        }
+    
+        .footer .footer-item p {
+            line-height: 35px;
+        }
+    
+        .footer .footer-item a:hover {
+            letter-spacing: 1px;
+            color: var(--bs-primary);
+        }
+    
+        .footer .btn-primary {
+            background-color: #d89c03; /* Yellow color */
+            border-color: #d89c03;
+        }
+    
+        .footer .btn-primary:hover {
+            background-color: #b78102; /* Darker yellow */
+            border-color: #b78102;
+            color: white;
+        }
+    
+        .footer-item img {
+            width: 50px;
+            height: auto;
+        }
+    
+        .footer-item h3 {
+            margin-bottom: 0;
+        }
+    
+        @media (max-width: 767px) {
+            .footer-item h4 {
+                text-align: center;
+            }
+            .footer-item a {
+                text-align: center;
+            }
+            .footer-item p {
+                text-align: center;
+            }
+            .footer .container {
+                padding: 0 15px;
+            }
+        }
+         
+        .text {
+            color: #914F1E; /* Custom brown color */
+        }
+        .hover\:text:hover {
+            color: #914F1E; /* Change to brown on hover */
+        }   
+        
+        *** Product ***/
+        .nav-pills .nav-item .btn {
+            color: var(--dark);
+        }
+        
+        .nav-pills .nav-item .btn:hover,
+        .nav-pills .nav-item .btn.active {
+            color: #FFFFFF;
+        }
+        
+        .product-item {
+            box-shadow: 0 0 45px rgba(0, 0, 0, .07);
+        }
+        
+        .product-item img {
+            transition: .5s;
+        }
+        
+        .product-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .product-item small a:hover {
+            color: var(--primary) !important;
+        }
+        
+        /* Ensure images scale correctly */
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        /* Adjust text and button sizes for smaller screens */
+        @media (max-width: 767px) {
+            .product-item .h5 {
+                font-size: 1.25rem; /* Adjust font size for product name */
+            }
+            .btn-primary {
+                font-size: 14px; /* Adjust font size for button */
+                padding: 10px 20px; /* Adjust padding for button */
+            }
+        }
+        
+
+        /* Clients Section Styles */
+        #clients {
+            background: #FFF;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .clients-carousel .item figure {
+            margin: 10px;
+            width: 150px;
+            margin: 0 auto;
+        }
+
+        .clients-carousel .item figure img {
+            display: block;
+            margin: 0 auto;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .clients-carousel .item figure img:hover {
+            opacity: 1;
+        }
+
+        /* Owl Carousel Navigation Button Styles */
+        .owl-nav .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #d89c03; /* Background color */
+            color: white; /* Text color */
+            border-radius: 50%; /* Round shape */
+            padding: 10px; /* Padding around the button */
+            font-size: 20px; /* Font size for arrows */
+            cursor: pointer; /* Pointer cursor on hover */
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .owl-nav .owl-prev {
+            left: -40px; /* Positioning left button */
+        }
+
+        .owl-nav .owl-next {
+            right: -40px; /* Positioning right button */
+        }
+
+        .owl-nav .nav-button:hover {
+            background-color: #f7b900; /* Change background on hover */
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+            transform: translateY(-50%) scale(1.1); /* Slight scale on hover */
+        }
+        .blog-container {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem;
+        }
+        
+        .blog-card {
+            flex: 0 0 auto;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: 480px;
+            transition: transform 0.3s ease-in-out;
+            width: 300px;
+        }
+        
+        .blog-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-card-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 1rem;
+        }
+        
+        .blog-card h2 {
+            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #e77f3f;
+        }
+        
+        .blog-card h1 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #FFB81C;
+        }
+        
+        .blog-card p {
+            margin-bottom: 0.5rem;
+            color: #6b7280;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        
+        .blog-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .learn-more-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #FFB81C;
+            color: #ffffff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease-in-out;
+            text-decoration: none;
+        }
+        
+        .learn-more-btn:hover {
+            background-color: #e77f3f;
+        }
+        
+        @media (max-width: 1024px) {
+            .blog-card {
+                width: 100%;
+            }
+        }
+        
+        /* Base styles for the button */
+        .learn-more-btn {
+            display: inline-block; /* Ensures the button is inline */
+            margin-top: 1rem; /* mt-4 */
+            padding: 0.5rem 1.5rem; /* py-2 px-4 */
+            background-color: #FBBF24; /* bg-yellow-500 */
+            color: #000; /* text-black */
+            border-radius: 100px; /* rounded-full */
+            text-align: center;
+            margin-right:140px;
+            text-decoration: none;
+            font-weight: 500; /* Optional: adjust font weight */
+            transition: background-color 0.3s ease;
+            width: auto; /* Adjust width based on content */
+            height: 40px;
+            line-height: 40px; /* Ensures text is centered vertically */
+            padding-left: 1rem; /* Add padding if needed for alignment */
+            padding-right: 1rem; /* Add padding if needed for alignment */
+            white-space: nowrap; /* Prevents text from wrapping */
+            display: flex; /* Use flexbox to center text horizontally */
+            align-items: center; /* Center text vertically */
+            justify-content: center; /* Center text horizontally */
+        }
+        
+        /* Hover effect */
+        .learn-more-btn:hover {
+            background-color: #F59E0B; /* bg-yellow-600 */
+        }
+
+    </style>
+
+          
+   
+</head>
+
+<body>
+<!-- Pre-header Starts -->
+<div class="bg-yellow-300 py-2">
+    <div class="container mx-auto flex flex-wrap justify-between items-center text-sm text-gray-600">
+        <div class="flex flex-wrap space-x-4 mb-2 md:mb-0">
+            <a href="#" class="flex items-center hover:text-gray-800"><i class="fa fa-envelope mr-2"></i> honey@gmail.com</a>
+            <a href="#" class="flex items-center hover:text-gray-800"><i class="fa fa-phone mr-2"></i> 1234567890</a>
+        </div>
+        <div class="flex flex-wrap space-x-4">
+            <a href="#" class="hover:text-gray-800"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="hover:text-gray-800"><i class="fa fa-behance"></i></a>
+            <a href="#" class="hover:text-gray-800"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="hover:text-gray-800"><i class="fa fa-dribbble"></i></a>
+        </div>
+    </div>
+</div>
+<!-- Pre-header End -->
+
+<!-- Header Area Start -->
+<header class="bg-white shadow-md sticky top-0 z-40">
+    <div class="container mx-auto flex flex-wrap items-center justify-between h-20 px-4">
+        <a href="index.html" class="flex-shrink-0">
+            <img src="{% static 'assets/images/large.png' %}" alt="Honey Logo" width="100" height="100">
+        </a>
+        <button id="menu-toggle" class="navbar-toggler md:hidden flex items-center px-3 py-2 border rounded border-gray-600 text-gray-600 hover:text-gray-800 focus:outline-none">
+            <i class="fa fa-bars"></i>
+        </button>
+        <ul class="hidden md:flex flex-1 justify-center space-x-6 text-yellow-800 font-semibold uppercase items-center">
+            <li><a href="{% url 'landing_page' %}" class="hover:text-yellow-700">Home</a></li>
+            <li><a href="{% url 'honey_page' %}" class="hover:text-yellow-700">Honey</a></li>
+            <li><a href="{% url 'pro_page' %}" class="hover:text-yellow-700">Honey Product</a></li>
+            <li><a href="{% url 'coc_page' %}" class="hover:text-yellow-700">Coconut Product</a></li>
+            <li><a href="{% url 'oil_page' %}" class="hover:text-yellow-700">Oil</a></li>
+            <li><a href="{% url 'spices_page' %}" class="hover:text-yellow-700">Spices</a></li>
+        </ul>
+        
+        <div class="hidden md:flex space-x-4 text-yellow-800 items-center">
+            <a href="#" class="hover:text-yellow-700"><i class="fa fa-search"></i></a>
+            <a href="#" class="hover:text-yellow-700"><i class="fa fa-shopping-cart"></i></a>
+            <a href="#" class="hover:text-yellow-700"><i class="fa fa-shopping-bag"></i></a>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+        <ul class="flex flex-col space-y-2 bg-white text-yellow-800 font-semibold uppercase">
+            <li><a href="{% url 'landing_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Home</a></li>
+            <li><a href="{% url 'honey_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Honey</a></li>
+            <li><a href="{% url 'pro_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Honey Product</a></li>
+            <li><a href="{% url 'coc_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Coconut Product</a></li>
+            <li><a href="{% url 'oil_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Oil</a></li>
+            <li><a href="{% url 'spices_page' %}" class="block px-4 py-2 hover:bg-yellow-100">Spices</a></li>
+        </ul>
+    </div>
+</header>
+<!-- Header Area End -->
+
+
+
+<div class="relative bg-cover bg-center h-96" style="background-image: url('{% static "assets/images/beewax1.jpg" %}');">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center px-8">
+        <h1 class="text text-4xl md:text-5xl lg:text-6xl font-bold text-left" style="color: #FFD966;">beewax products</h1>
+        
+    </div>
+</div>
+
+
+<h1 class="text-4xl font-extrabold text-gray-900 text-center mt-8"></h1>
+
+<div class="bg-white p-6 rounded-lg shadow- max-w-6xl mx-auto my-8 flex flex-col md:flex-row items-center" style="margin-right: 15%;">
+    <!-- Image Section -->
+    
+    <div class="md:w-1/2 mb-6 md:mb-0">
+      <img src="{% static 'assets/images/12345.avif' %}" alt="Vegetable Oils" class="rounded-lg shadow-">
+    </div>
+    <!-- Content Section -->
+<div class="md:w-1/2 md:pl-8">
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">Premium Beeswax</h2>
+    <p class="text-gray-700 leading-relaxed text-lg mb-4">
+        Our premium beeswax is crafted from the highest quality honeycomb, offering a natural and versatile product for a variety of applications. Perfect for skincare, candle making, and other crafts, this beeswax is pure, untreated, and packed with beneficial properties. Trusted by artisans and businesses, our beeswax guarantees consistency, purity, and exceptional quality in every batch.
+    </p>
+</div>
+</div>
+
+
+ <!-- Product Start -->
+ <div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-0 gx-5 align-items-end">
+            <div class="col-lg-6">
+                <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                    <h1 class="display-4 mb-3" style="color: #FFD966; font-size: 4rem;">Beewax Products</h1>
+                    <p style="font-size: 1.2rem;">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
+                    <li class="nav-item me-2">
+                        <a class="btn btn-rounded text-white bg-yellow-400 border-yellow-400 hover:bg-yellow-500" data-bs-toggle="pill" href="#tab-1">Honey</a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="btn btn-rounded text-white bg-yellow-400 border-yellow-400 hover:bg-yellow-500" data-bs-toggle="pill" href="#tab-2">Honey</a>
+                    </li>
+                    <li class="nav-item me-0">
+                        <a class="btn btn-rounded text-white bg-yellow-400 border-yellow-400 hover:bg-yellow-500" data-bs-toggle="pill" href="#tab-3">Honey</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div id="tab-1" class="tab-pane fade show p-0 active">
+                <div class="row g-4">
+                    <!-- Product Card 1 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 mx-auto" style="margin-left: 0;">
+                        <div class="product-item">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="{% static 'assets/images/beewax1.jpg' %}" alt="" style="height: 300px; object-fit: cover;">
+                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color: #FFD966;">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2 text-[#FFD966]" href="">Beewax</a>
+                                <span class="text-black me-1">₹ 19.00</span>
+                                <span class="text-body text-decoration-line-through">₹29.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href="" style="color: #FFD966;">
+                                        <i class="fa fa-eye" style="color: #FFD966; margin-right: 5px;"></i>View detail
+                                    </a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href="" style="color: #FFD966;">
+                                        <i class="fa fa-shopping-bag" style="color: #FFD966; margin-right: 5px;"></i>Add to cart
+                                    </a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat Product Cards -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 mx-auto" style="margin-left: 0;">
+                        <div class="product-item">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="{% static 'assets/images/beewax.jpg' %}" alt="" style="height: 300px; object-fit: cover;">
+                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color: #FFD966;">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2 text-[#FFD966]" href="">Beewax</a>
+                                <span class="text-black me-1">₹89.00</span>
+                                <span class="text-body text-decoration-line-through">₹109.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href="" style="color: #FFD966;">
+                                        <i class="fa fa-eye" style="color: #FFD966; margin-right: 5px;"></i>View detail
+                                    </a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href="" style="color: #FFD966;">
+                                        <i class="fa fa-shopping-bag" style="color: #FFD966; margin-right: 5px;"></i>Add to cart
+                                    </a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional Product Cards -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 mx-auto" style="margin-left: 0;">
+                        <div class="product-item">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="{% static 'assets/images/beewax1.jpg' %}" alt="" style="height: 300px; object-fit: cover;">
+                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color: #FFD966;">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2 text-[#FFD966]" href="">Beewax</a>
+                                <span class="text-black me-1">₹49.00</span>
+                                <span class="text-body text-decoration-line-through">₹59.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href="" style="color: #FFD966;">
+                                        <i class="fa fa-eye" style="color: #FFD966; margin-right: 5px;"></i>View detail
+                                    </a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href="" style="color: #FFD966;">
+                                        <i class="fa fa-shopping-bag" style="color: #FFD966; margin-right: 5px;"></i>Add to cart
+                                    </a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <a class="btn rounded-pill py-2 px-4" href="" style="background-color: #FFD966; color: white; border: none; font-size: 14px;">
+                        Browse More Products
+                    </a>
+                </div>
+            </div>
+            
+            <div id="tab-2" class="tab-pane fade show p-0">
+                <div class="row g-4">
+                    <!-- Product 1 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" style="margin-left: 90px;" >
+                        <div class="product-item">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="{% static 'assets/images/—Pngtree—a coconut oil_15672144.png' %}" alt="">
+                                <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2" href="">Oil</a>
+                                <span class="text-primary me-1">$19.00</span>
+                                <span class="text-body text-decoration-line-through">$29.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat for other products -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="product-item">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="img/product-2.jpg" alt="">
+                                <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2" href="">Oil</a>
+                                <span class="text-primary me-1">$19.00</span>
+                                <span class="text-body text-decoration-line-through">$29.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more products as needed -->
+            
+                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <div id="tab-3" class="tab-pane fade show p-0">
+                <div class="row g-4">
+                    <!-- Product 1 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="product-item" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="img/product-1.jpg" alt="" style="object-fit: cover; height: 200px;">
+                                <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2" href="" style="font-size: 1.25rem;">Oil</a>
+                                <span class="text-primary me-1">$19.00</span>
+                                <span class="text-body text-decoration-line-through">$29.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href="" style="font-size: 0.875rem;"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href="" style="font-size: 0.875rem;"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="product-item" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="img/product-2.jpg" alt="" style="object-fit: cover; height: 200px;">
+                                <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2" href="" style="font-size: 1.25rem;">Oil</a>
+                                <span class="text-primary me-1">$19.00</span>
+                                <span class="text-body text-decoration-line-through">$29.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href="" style="font-size: 0.875rem;"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href="" style="font-size: 0.875rem;"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="product-item" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="img/product-3.jpg" alt="" style="object-fit: cover; height: 200px;">
+                                <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2" href="" style="font-size: 1.25rem;">Oil</a>
+                                <span class="text-primary me-1">$19.00</span>
+                                <span class="text-body text-decoration-line-through">$29.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href="" style="font-size: 0.875rem;"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href="" style="font-size: 0.875rem;"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="product-item" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
+                            <div class="position-relative bg-light overflow-hidden">
+                                <img class="img-fluid w-100" src="img/product-4.jpg" alt="" style="object-fit: cover; height: 200px;">
+                                <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
+                            </div>
+                            <div class="text-center p-4">
+                                <a class="d-block h5 mb-2" href="" style="font-size: 1.25rem;">Oil</a>
+                                <span class="text-primary me-1">$19.00</span>
+                                <span class="text-body text-decoration-line-through">$29.00</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href="" style="font-size: 0.875rem;"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href="" style="font-size: 0.875rem;"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="" style="font-size: 1rem; padding: 10px 20px;">Browse More Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+<div>
+
+<!-- Product End -->
+
+
+
+<div class="bg-gray-50 py-10">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"> <!-- Adjusted gap -->
+
+            <!-- Blog Card 1: The Versatility of Beeswax -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden"> <!-- Adjusted shadow -->
+                <img class="w-full h-40 object-cover mb-3" src="{% static 'assets/images/beewax.jpg' %}" alt="Beeswax Blog Image 1"> <!-- Adjusted height -->
+                <div class="p-4"> <!-- Increased padding -->
+                    <!-- Metadata Section -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-4"> <!-- Adjusted spacing and margin -->
+                        <!-- Date Badge -->
+                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs mb-2 sm:mb-0">
+                            07 Sep
+                        </span>
+                        
+                        <!-- Author and Comments -->
+                        <div class="flex flex-col sm:flex-row sm:items-center text-gray-500 space-y-2 sm:space-y-0 sm:space-x-3">
+                            <!-- Author Info -->
+                            <span class="inline-flex items-center text-xs">
+                                <i class="fas fa-user text-yellow-500 text-xs"></i>
+                                <span class="ml-1">BeeswaxGuru</span>
+                            </span>
+                            <!-- Comments Info -->
+                            <span class="inline-flex items-center text-xs">
+                                <i class="fas fa-comment text-yellow-500 text-xs"></i>
+                                <span class="ml-1">5 Comments</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Title -->
+                    <h2 class="text-sm font-semibold text-gray-800 mb-2">The Versatility of Beeswax</h2> <!-- Adjusted text size -->
+                    
+                    <!-- Blog Excerpt -->
+                    <p class="text-gray-600 text-xs mb-3">
+                        Beeswax is a natural and versatile product with a wide range of uses, from skincare to crafting. Discover how you can incorporate this eco-friendly material into your daily life.
+                    </p>
+                    
+                    <!-- Read More Link -->
+                    <a href="#" class="text-yellow-500 font-semibold text-xs inline-flex items-center hover:underline">
+                        Read More
+                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Blog Card 2: Crafting with Beeswax -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden"> <!-- Adjusted shadow -->
+                <img class="w-full h-40 object-cover mb-3" src="{% static 'assets/images/beewax1.jpg' %}" alt="Beeswax Blog Image 2"> <!-- Adjusted height -->
+                <div class="p-4"> <!-- Increased padding -->
+                    <!-- Metadata Section -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-4"> <!-- Adjusted spacing and margin -->
+                        <!-- Date Badge -->
+                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs mb-2 sm:mb-0">
+                            08 Sep
+                        </span>
+                        
+                        <!-- Author and Comments -->
+                        <div class="flex flex-col sm:flex-row sm:items-center text-gray-500 space-y-2 sm:space-y-0 sm:space-x-3">
+                            <!-- Author Info -->
+                            <span class="inline-flex items-center text-xs">
+                                <i class="fas fa-user text-yellow-500 text-xs"></i>
+                                <span class="ml-1">CraftBees</span>
+                            </span>
+                            <!-- Comments Info -->
+                            <span class="inline-flex items-center text-xs">
+                                <i class="fas fa-comment text-yellow-500 text-xs"></i>
+                                <span class="ml-1">2 Comments</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Title -->
+                    <h2 class="text-sm font-semibold text-gray-800 mb-2">Crafting with Beeswax: Tips and Ideas</h2> <!-- Adjusted text size -->
+                    
+                    <!-- Blog Excerpt -->
+                    <p class="text-gray-600 text-xs mb-3">
+                        From candles to wraps, crafting with beeswax is a rewarding experience. Explore creative ideas and tips to get started on your next beeswax project.
+                    </p>
+                    
+                    <!-- Read More Link -->
+                    <a href="#" class="text-yellow-500 font-semibold text-xs inline-flex items-center hover:underline">
+                        Read More
+                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Blog Card 3: Benefits of Beeswax in Skincare -->
+            <div class="bg-white shadow-md rounded-lg overflow-hidden"> <!-- Adjusted shadow -->
+                <img class="w-full h-40 object-cover mb-3" src="{% static 'assets/images/beewax123.avif' %}" alt="Beeswax Blog Image 3"> <!-- Adjusted height -->
+                <div class="p-4"> <!-- Increased padding -->
+                    <!-- Metadata Section -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 mb-4"> <!-- Adjusted spacing and margin -->
+                        <!-- Date Badge -->
+                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs mb-2 sm:mb-0">
+                            09 Sep
+                        </span>
+                        
+                        <!-- Author and Comments -->
+                        <div class="flex flex-col sm:flex-row sm:items-center text-gray-500 space-y-2 sm:space-y-0 sm:space-x-3">
+                            <!-- Author Info -->
+                            <span class="inline-flex items-center text-xs">
+                                <i class="fas fa-user text-yellow-500 text-xs"></i>
+                                <span class="ml-1">SkinCareBee</span>
+                            </span>
+                            <!-- Comments Info -->
+                            <span class="inline-flex items-center text-xs">
+                                <i class="fas fa-comment text-yellow-500 text-xs"></i>
+                                <span class="ml-1">8 Comments</span>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Title -->
+                    <h2 class="text-sm font-semibold text-gray-800 mb-2">The Benefits of Beeswax in Skincare</h2> <!-- Adjusted text size -->
+                    
+                    <!-- Blog Excerpt -->
+                    <p class="text-gray-600 text-xs mb-3">
+                        Beeswax is a natural emollient that locks in moisture, making it an excellent ingredient in skincare products. Learn about its benefits and how to use it in your routine.
+                    </p>
+                    
+                    <!-- Read More Link -->
+                    <a href="#" class="text-yellow-500 font-semibold text-xs inline-flex items-center hover:underline">
+                        Read More
+                        <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid footer bg-light py-5 wow fadeIn" data-wow-delay="0.2s">
+    <div class="container py-5">
+        <!-- Subscription and Social Media Section -->
+        <div class="row g-5 mb-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="position-relative mx-auto">
+                    <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Email address">
+                    <button type="button" class="btn btn-primary position-absolute top-0 end-0 py-2 px-4 mt-2 me-2">Subscribe</button>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="d-flex align-items-center justify-content-center justify-content-lg-end">
+                    <a class="btn btn-light btn-md-square me-3" href="#">
+                        <i class="fab fa-facebook-f" style="color: #d89c03;"></i>
+                    </a>
+                    <a class="btn btn-light btn-md-square me-3" href="#">
+                        <i class="fab fa-twitter" style="color: #d89c03;"></i>
+                    </a>
+                    <a class="btn btn-light btn-md-square me-3" href="#">
+                        <i class="fab fa-instagram" style="color: #d89c03;"></i>
+                    </a>
+                    <a class="btn btn-light btn-md-square me-0" href="#">
+                        <i class="fab fa-linkedin-in" style="color: #d89c03;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Links Section -->
+        <div class="row g-5">
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column align-items-center">
+                    <div class="d-flex align-items-center mb-4">
+                        <img src="{% static 'assets/images/true.jpg' %}" alt="Electra Logo" class="me-3">
+                        <h3 class="text-dark mb-0">
+                            <i class="fas fa-bee" style="color: #d89c03; margin-right: 8px;"></i>
+                            Electra
+                        </h3>
+                    </div>
+                    <p class="mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est. Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="text-dark mb-4">Quick Links</h4>
+                    <a href="#">Home</a>
+                    <a href="#">About us</a>
+                    <a href="#">Service</a>
+                    <a href="#">Testimonial</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="text-dark mb-4">Honey Services</h4>
+                    <a href="#">Honey 1</a>
+                    <a href="#">Honey 2</a>
+                    <a href="#">Honey 3</a>
+                    <a href="#">Honey 4</a>
+                    <a href="#">Honey 5</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item d-flex flex-column">
+                    <h4 class="text-dark mb-4">Contact Info</h4>
+                    <a href="#"><i class="fa fa-map-marker-alt" style="color: #d89c03; margin-right: 8px;"></i>123 Street, Manjalumoodu</a>
+                    <a href="mailto:info@example.com"><i class="fas fa-envelope" style="color: #d89c03; margin-right: 8px;"></i>info@example.com</a>
+                    <a href="tel:+01234567890"><i class="fas fa-phone" style="color: #d89c03; margin-right: 8px;"></i>+012 345 67890</a>
+                    <a href="tel:+01234567890" class="mb-3"><i class="fas fa-print" style="color: #d89c03; margin-right: 8px;"></i>+012 345 67890</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Swiper JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+<script>
+    $(document).ready(function(){
+        $(".clients-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:2
+                },
+                1000:{
+                    items:4
+                }
+            },
+            navText: ["<div class='nav-button owl-prev'>‹</div>", "<div class='nav-button owl-next'>›</div>"]
+        });
+    });
+    </script>
+    
+    <script>
+        // JavaScript for toggling the mobile menu
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        </script>
+
+</body>
+</html>
