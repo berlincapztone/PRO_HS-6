@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
 
-        /* Prevent horizontal overflow */
+  /* Prevent horizontal overflow */
         html, body {
             margin: 0;
             padding: 0;
@@ -148,7 +148,12 @@
         .product-item small a:hover {
             color: var(--primary) !important;
         }
+       
         
+        .icon-color {
+            color: #8B4513;
+        }
+
      
     </style>
 
@@ -217,9 +222,12 @@
 <!-- Hero Section -->
 <div class="relative bg-cover bg-center h-96" style="background-image: url('{% static "assets/images/spices1.avif" %}');">
     <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center px-8">
-        <h1 class="text text-4xl md:text-5xl lg:text-6xl font-bold text-left" style="color: #FFD966;">
+      
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-right" style="color: #8B4513;">
             Organic Spices
         </h1>
+        
+         
     </div>
 </div>
 
@@ -227,40 +235,54 @@
 <div class="bg-white p-6 rounded-lg shadow- max-w-6xl mx-auto my-8 flex flex-col md:flex-row items-center">
     <!-- Image Section -->
     <div class="w-full md:w-1/2 mb-6 md:mb-0">
-        <img src="{% static 'assets/images/nutmug.avif' %}" alt="Vegetable Oils" class="w-full rounded-lg shadow-">
+        <img src="{% static 'assets/images/nutmug.avif' %}" alt="Vegetable Oils" class="w-full rounded- shadow-">
     </div>
     
     <!-- Content Section -->
     <div class="w-full md:w-1/2 md:pl-8">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Organic & Non-GMO Oils</h2>
-        <p class="text-gray-700 leading-relaxed text-base md:text-lg mb-4">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-normal mb-4 leading-tight" style="color:#8B4513; ">
+            Organic & Non-GMO Oils
+        </h2>
+        
+        <p class="text-Black-500 leading-relaxed text-sm md:text-base lg:font-medium mb-6 font-lighter">
             For years, fats and oils were often avoided due to concerns over health risks, GMOs, and other factors. However, times have changed, and now certain oils are celebrated for their health benefits. Our selection of organic, non-GMO vegetable oils provides a variety of flavors, functions, and nutritional profiles to suit your needs. Whether you're cooking, baking, or simply looking for a healthy oil option, our range has something for everyone.
         </p>
     </div>
 </div>
-
-
 <!-- Product Start -->
 <div class="container-xxl py-5">
     <div class="container">
         <div class="row g-0 gx-5 align-items-end">
             <div class="col-lg-6">
                 <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                    <h1 class="display-4 mb-3" style="color: #FFD966; font-size: 4rem;">Spices Products</h1>
+                    <h1 class="display-4 mb-3 font-bold" style="color:#8B4513;   font-size: 3rem;">
+                        Spices Products
+                    </h1>
+                    
                     <p style="font-size: 1.2rem;">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
                 </div>
             </div>
             <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                 <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
                     <li class="nav-item me-2">
-                        <a class="btn border-2 rounded-full text-white border-yellow-400 bg-yellow-400 hover:bg-yellow-500" data-bs-toggle="pill" href="#tab-1">Canola Oil</a>
+                        <a class="btn border-2 rounded-full text-white" 
+                           style="border-color: #8B4513; background-color: #8B4513; hover:bg-#8B4513;"
+                           data-bs-toggle="pill" 
+                           href="#tab-1">Canola Oil</a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="btn border-2 rounded-full text-white border-yellow-400 bg-yellow-400 hover:bg-yellow-500" data-bs-toggle="pill" href="#tab-2">Olive Oil</a>
+                        <a class="btn border-2 rounded-full text-white" 
+                           style="border-color: #8B4513; background-color: #8B4513; hover:bg-#8B4513;"
+                           data-bs-toggle="pill" 
+                           href="#tab-2">Olive Oil</a>
                     </li>
                     <li class="nav-item me-0">
-                        <a class="btn border-2 rounded-full text-white border-yellow-400 bg-yellow-400 hover:bg-yellow-500" data-bs-toggle="pill" href="#tab-3">Safflower Oil</a>
+                        <a class="btn border-2 rounded-full text-white" 
+                           style="border-color: #8B4513; background-color: #8B4513; hover:bg-#8B4513;"
+                           data-bs-toggle="pill" 
+                           href="#tab-3">Safflower Oil</a>
                     </li>
+                    
                 </ul>
             </div>
         </div>
@@ -272,7 +294,7 @@
                         <div class="product-item">
                             <div class="position-relative bg-light overflow-hidden">
                                 <img class="img-fluid w-100" src="{% static 'assets/images/spices1.avif' %}" alt="" style="height: 300px; object-fit: cover;">
-                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color: #FFD966;">New</div>
+                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color:#8B4513; ">New</div>
                             </div>
                             <div class="text-center p-4">
                                 <a class="d-block h5 mb-2 text-[#FFD966]" href="">Spices</a>
@@ -298,7 +320,7 @@
                         <div class="product-item">
                             <div class="position-relative bg-light overflow-hidden">
                                 <img class="img-fluid w-100" src="{% static 'assets/images/pepper.avif' %}" alt="" style="height: 300px; object-fit: cover;">
-                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color: #FFD966;">New</div>
+                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color:#8B4513; ;">New</div>
                             </div>
                             <div class="text-center p-4">
                                 <a class="d-block h5 mb-2 text-[#FFD966]" href="">pepper</a>
@@ -324,7 +346,7 @@
                         <div class="product-item">
                             <div class="position-relative bg-light overflow-hidden">
                                 <img class="img-fluid w-100" src="{% static 'assets/images/spices2.avif' %}" alt="" style="height: 300px; object-fit: cover;">
-                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color: #FFD966;">New</div>
+                                <div class="bg-[#FFD966] rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3" style="background-color:#8B4513; ;">New</div>
                             </div>
                             <div class="text-center p-4">
                                 <a class="d-block h5 mb-2 text-[#FFD966]" href="">all product of spice</a>
@@ -347,7 +369,7 @@
                     </div>
                 </div>
                <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                        <a href="#" class="btn" style="background-color: #FFD966; color: white; border-radius: 50px; padding: 10px 30px; font-size: 16px; margin-top:30px;">Browse More Products</a>
+                        <a href="#" class="btn" style="background-color:#8B4513;  color: white; border-radius: 50px; padding: 10px 30px; font-size: 16px; margin-top:30px;">Browse More Products</a>
                     </div>
                 </div>
             </div>
@@ -368,6 +390,7 @@
 
 
 
+
 <div class="bg-gray-50 py-10">
     <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         
@@ -384,12 +407,12 @@
                     <div class="ml-4 flex items-center text-gray-500 space-x-2">
                         <!-- Author Info -->
                         <span class="inline-flex items-center text-xs">
-                            <i class="fas fa-user text-yellow-500"></i>
+                            <i class="fas fa-user icon-color"></i>
                             <span class="ml-1">SpiceGuru</span>
                         </span>
                         <!-- Comments Info -->
                         <span class="inline-flex items-center text-xs">
-                            <i class="fas fa-comment text-yellow-500"></i>
+                            <i class="fas fa-comment icon-color"></i>
                             <span class="ml-1">5 Comments</span>
                         </span>
                     </div>
@@ -424,12 +447,12 @@
                     <div class="ml-4 flex items-center text-gray-500 space-x-2">
                         <!-- Author Info -->
                         <span class="inline-flex items-center text-xs">
-                            <i class="fas fa-user text-yellow-500"></i>
+                            <i class="fas fa-user icon-color"></i>
                             <span class="ml-1">SpiceExpert</span>
                         </span>
                         <!-- Comments Info -->
                         <span class="inline-flex items-center text-xs">
-                            <i class="fas fa-comment text-yellow-500"></i>
+                            <i class="fas fa-comment icon-color"></i>
                             <span class="ml-1">2 Comments</span>
                         </span>
                     </div>
@@ -464,12 +487,12 @@
                     <div class="ml-4 flex items-center text-gray-500 space-x-2">
                         <!-- Author Info -->
                         <span class="inline-flex items-center text-xs">
-                            <i class="fas fa-user text-yellow-500"></i>
+                            <i class="fas fa-user icon-color"></i>
                             <span class="ml-1">SpiceMaster</span>
                         </span>
                         <!-- Comments Info -->
                         <span class="inline-flex items-center text-xs">
-                            <i class="fas fa-comment text-yellow-500"></i>
+                            <i class="fas fa-comment icon-color"></i>
                             <span class="ml-1">4 Comments</span>
                         </span>
                     </div>
@@ -493,6 +516,8 @@
         
     </div>
 </div>
+
+
 
 
 
