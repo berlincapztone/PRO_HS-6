@@ -32,6 +32,15 @@
     <script src="{% static 'path_to/owl.carousel.min.js' %}"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
+        /* Prevent horizontal overflow */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
         /*** Footer Start ***/
         .footer {
             background:url('{% static "assets/images/footer.jpg" %}')no-repeat center center;
