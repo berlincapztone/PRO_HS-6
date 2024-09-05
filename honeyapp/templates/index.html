@@ -375,99 +375,7 @@
         }
         
         
-        .testimonials { 
-            position: relative;
-            background-repeat: no-repeat;
-            background-size: cover;
-            padding: 50px 0;
-            font-family: 'Poppins', sans-serif;
-        }
-        .testimonials::before {
-            content: '';
-            position: absolute;
-            right: 0; 
-            left: 0; 
-            top: 0; 
-            bottom: 0;
-            background: rgba(255,216,50,.7);
-        }
-        .testimonials .title {
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding: 20px 0;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .testimonials .title h5 {
-            color: #EB6D2F;
-            line-height: 1.2em;
-            font-size: 18px;
-            font-weight: 900;
-            margin-bottom: -3px;
-        }
-        .testimonials .title h2 {
-            color: #5A3733;
-            line-height: 1.2em;
-            font-weight: 900;
-            font-size: 41px;
-            letter-spacing: -1px;
-            margin: 0;
-        }
-        .testimonials .testi .item {
-            background: #fff;
-            padding: 50px 30px;
-            border-radius: 15px;
-        }
-        .testimonials .testi .item .profile {
-            display: flex;
-            padding-left: 15px;
-        }
-        .testimonials .testi .item .profile img {
-            border-radius: 100%;
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-        }
-        .testimonials .testi .item .profile .information {
-            padding-left: 20px;
-            margin-bottom: 15px;
-        }
-        .testimonials .testi .item .profile .information .stars i {
-            color: #ffd832;
-        }
-        .testimonials .testi .item .profile .information p {
-            font-size: 24px;
-            margin: 0px auto 0px;
-            color: #5A3733;
-            font-weight: 900;
-            line-height: 1;
-        }
-        .testimonials .testi .item .profile .information span {
-            color: #EB6D2F;
-            font-weight: bold;
-            margin-top: -4px;
-            line-height: 1.6em;
-            font-size: 14px;
-        }
-        .testimonials .testi .item > p {
-            margin-bottom: 15px;
-            font-size: 16px;
-            line-height: 1.6em;
-            display: block;
-            z-index: 2;
-            font-style: italic;
-            color: #5A3733;
-            text-align: center;
-        }
-        .testimonials .testi .item .icon {
-            text-align: center;
-        }
-        .testimonials .testi .item .icon i {
-            font-size: 32px;
-            color: #FFD832;
-        }
-        
+    
 
         @keyframes slide {
             0% {
@@ -735,7 +643,7 @@
                     <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-100 bg-cover bg-center relative">
                         <div class="text-left mb-4 md:mb-0 md:w-1/2">
                             <h2 class="text-2xl md:text-3xl text-yellow-600 uppercase mb-2 font-semibold">Pure Honey</h2>
-                            <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight font-semibold">From Hive to Home, <span class="text-yellow-700">Naturally</span></h1>
+                            <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight font-semibold">From Hive to Home <span class="text-yellow-500">Naturally</span></h1>
                             <p class="text-gray-700 mb-4 font-semibold">Focuses on the journey of honey from the hive directly to the consumer’s table, ensuring natural quality and purity every step of the way.</p>
                             <div class="flex items-center space-x-4">
                                 <button class="bg-yellow-600 text-white px-4 py-2 text-lg rounded-full hover:bg-yellow-700 transition duration-300 ease-in-out">
@@ -743,7 +651,7 @@
                                 </button>
                             </div>
                         </div>
-                        <img src="{% static 'assets/images/jar-honey-with-honeycomb-dipper-white-background_730629-884.avif' %}" alt="Honey Image" class="object-cover rounded-lg w-full md:w-1/2 h-auto mt-4 md:mt-0"/>
+                        <img src="{% static 'assets/images/glass-bottle-coconut-oil-with-broken-coconut-shells-coconut-shavings-white-background_1058532-26122.avif ' %}" alt="Honey Image" class="object-cover rounded-lg w-full md:w-1/2 h-auto mt-4 md:mt-0"/>
                     </div>
                 </div>
                 
@@ -769,13 +677,13 @@
                     <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-300 bg-cover bg-center relative">
                         <div class="text-left mb-4 md:mb-0 md:w-1/2">
                             <h2 class="text-2xl md:text-3xl text-yellow-600 uppercase mb-2 font-semibold">Coconuts</h2>
-                            <h1 class="text-4xl md:text-6xl font-bold mb-4 font-semibold">Coconuts <span class="text-yellow-500">The tree of Life</span></h1>
+                            <h1 class="text-3xl md:text-5xl font-bold mb-4 font-semibold">Coconuts <span class="text-yellow-500">The tree of Life</span></h1>
                             <p class="text-gray-700 mb-4 font-semibold">Savor the rich flavors of honey produced with care by our hardworking bees.</p>
                             <div class="flex items-center space-x-4">
                                 <button class="bg-yellow-600 text-white px-4 py-2 rounded-full">Shop Now</button>
                             </div>
                         </div>
-                        <img src="{% static 'assets/images/glass-bottle-coconut-oil-with-broken-coconut-shells-coconut-shavings-white-background_1058532-26122.avif' %}" alt="Coconuts Image" class="object-cover rounded-lg w-full md:w-1/2 h-auto -mt-8"/>
+                        <img src="{% static 'assets/images/glass-bottle-coconut-oil-with-broken-coconut-shells-coconut-shavings-white-background_1058532-26122.avif' %}" alt="Coconuts Image" class="object-cover rounded-lg w-full md:w-1/2 h-auto mt-4"/>
                     </div>
                 </div>
             </div>
