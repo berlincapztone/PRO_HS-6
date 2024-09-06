@@ -350,7 +350,7 @@
 
 <div class="relative bg-cover bg-center h-96" style="background-image: url('{% static "assets/images/1234.jpeg" %}');">
     <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center px-8">
-        <h1 class="text text-4xl md:text-5xl lg:text-6xl font-bold text-left" style="color: #FFD966;">Honey Product</h1>
+        <h1 class="text text-4xl md:text-5xl lg:text-6xl font-bold text-right" style="color: #FFD966;">Honey Product</h1>
      
     </div>
 </div>
@@ -358,26 +358,34 @@
 
 <!-- Consistency Section -->
 
-<section class="relative py-16 bg-cover bg-center" style="background-image: url('{% static "assets/images/" %}');">
+
+<section class="relative py-16 bg-cover bg-center" style="background-image: url('{% static "assets/images/background.jpg" %}');">
     <div class="container mx-auto">
         <!-- Single Wrapper Div for Content and Image -->
         <div class="flex flex-col lg:flex-row items-center">
-            <!-- Content and Image Combined in One Div -->
-            <div class="flex flex-col lg:flex-row items-center w-full">
-                <!-- Content Div -->
-                <div class="text-left lg:w-1/2 lg:pr-8 mb-8 lg:mb-0" style="margin-left:70px;">
-                    <h2 class="text-4xl font-semibold mb-4">Consistency from Hive to Table</h2>
-                    <p class="mb-6">Offering a wide variety of honey formats, GloryBee provides consistent color and flavor profiles for all of your formulations. Our stringent quality assurance and food safety standards make us a leader in the honey industry.</p>
-                    <button id="shopNowBtn" class="bg-yellow-500 text-gray-900 text-lg font-bold rounded-full px-6 py-3 shadow-md transition-colors duration-300 hover:bg-yellow-600">Shop Now</button>
-                </div>
-                <!-- Image Div -->
-                <div class="lg:w-1/2 flex justify-center items-center">
-                    <img src="{% static "assets/images/ber.png" %}" alt="Consistency Image" class="w-34 h-64 object-cover rounded-lg shadow-">
-                </div>
+            <!-- Content Div -->
+            <div class="flex flex-col lg:w-1/2 lg:pr-8 mb-8 lg:mb-0 lg:mr-16">
+                <h2 class="text-4xl font-semibold mb-4" style="color: #FEE29B;">Consistency from Hive to Table</h2>
+                <p class="text-gray-900 leading-relaxed text-sm md:text-base lg:font-medium mb-6 font-light">
+                    Offering a wide variety of honey formats, GloryBee provides consistent color and flavor profiles for all of your formulations. Our stringent quality assurance and food safety standards make us a leader in the honey industry.
+                </p>
+                
+                <button id="shopNowBtn" style="background-color: #FEE29B; color: #333; font-size: 0.875rem; font-weight: bold; padding: 0.5rem 1rem; border-radius: 9999px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease; width:120px;" 
+                onmouseover="this.style.backgroundColor='#FDDC65'" 
+                onmouseout="this.style.backgroundColor='#FEE29B'">
+                Shop Now
+            </button>
+            </div>
+            <!-- Image Div -->
+            <div class="lg:w-1/2 flex justify-center items-center">
+                <img src="{% static "assets/images/ber.png" %}" alt="Consistency Image" class="w-full h-auto max-w-lg rounded-lg">
             </div>
         </div>
     </div>
 </section>
+
+
+
 
 
 <!-- Add a Left-Aligned Heading for Honey Selection -->
@@ -389,21 +397,21 @@
 <header class="bg-white py-8">
     <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 text-center">
         <!-- First Card: Bulk Honey -->
-        <div class="p-8 rounded-lg shadow-lg flex flex-col sm:flex-row items-center justify-between overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl" style="background: linear-gradient(109.6deg, rgb(255, 219, 47) 11.2%, rgb(244, 253, 0) 100.2%);">
+        <div class="p-8 rounded-lg shadow-lg flex flex-col sm:flex-row items-center justify-between overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl" style="background: linear-gradient(109.6deg, #F5E1A4 11.2%, #F9D77E 100.2%);">
             <div class="flex flex-col justify-between h-full text-left sm:pr-8">
-                <h2 class="text-2xl font-semibold mb-4 mt-2 text-black">Bulk Honey</h2> <!-- Updated text color -->
-                <p class="mb-6 text-black">Our bulk honey offers consistent quality and flavor, perfect for large-scale needs.</p> <!-- Updated text color -->
-                <a href="{% url 'bulk_page' %}" class="bg-yellow-500 text-gray-900 rounded-full shadow-md transition-transform transform hover:scale-105 w-24 h-12 inline-block text-center flex items-center justify-center">Shop Now</a> <!-- Yellow button with link -->
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 mt-2 text-black">Bulk Honey</h2> <!-- Consistent text size -->
+                <p class="mb-6 text-black text-sm sm:text-base">Our bulk honey offers consistent quality and flavor, perfect for large-scale needs.</p> <!-- Consistent text size -->
+                <a href="{% url 'bulk_page' %}" style="background-color: #FEE29B; color: #333333;" class="rounded-full transition-transform transform hover:scale-105 w-24 h-12 inline-block text-center flex items-center justify-center text-xs sm:text-sm">Shop Now</a> <!-- Consistent button styling -->
             </div>
             <img src="{% static "assets/images/ber.png" %}" alt="Bulk Honey" class="h-48 w-48 object-cover mt-4 sm:mt-0 rounded-lg transition-transform transform hover:scale-110">
         </div>
         
         <!-- Second Card: Retail Honey -->
-        <div class="p-8 rounded-lg shadow-lg flex flex-col sm:flex-row items-center justify-between overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl" style="background: linear-gradient(109.6deg, rgb(255, 219, 47) 11.2%, rgb(244, 253, 0) 100.2%);">
+        <div class="p-8 rounded-lg shadow-lg flex flex-col sm:flex-row items-center justify-between overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl" style="background: linear-gradient(109.6deg, #F5E1A4 11.2%, #F9D77E 100.2%);">
             <div class="flex flex-col justify-between h-full text-left sm:pr-8">
-                <h2 class="text-2xl font-semibold mb-4 mt-2 text-black">Retail Honey</h2> <!-- Updated text color -->
-                <p class="mb-6 text-black">Our retail honey is packaged for individual sale, maintaining the highest standards of quality.</p> <!-- Updated text color -->
-                <a href="{% url 'retail_page' %}" class="bg-yellow-500 text-gray-900 rounded-full shadow-md transition-transform transform hover:scale-105 w-24 h-12 inline-block text-center flex items-center justify-center">Shop Now</a> <!-- Yellow button with link -->
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4 mt-2 text-black">Retail Honey</h2> <!-- Consistent text size -->
+                <p class="mb-6 text-black text-sm sm:text-base">Our retail honey is packaged for individual sale, maintaining the highest standards of quality.</p> <!-- Consistent text size -->
+                <a href="{% url 'retail_page' %}" style="background-color: #FEE29B; color: #333333;" class="rounded-full transition-transform transform hover:scale-105 w-24 h-12 inline-block text-center flex items-center justify-center text-xs sm:text-sm">Shop Now</a> <!-- Consistent button styling -->
             </div>
             <img src="{% static "assets/images/ber.png" %}" alt="Retail Honey" class="h-48 w-48 object-cover mt-4 sm:mt-0 rounded-lg transition-transform transform hover:scale-110">
         </div>
@@ -411,20 +419,21 @@
 </header>
 
 
+
 <section class="w-screen py-20">
     <h1 class="mb-12 text-center font-sans text-5xl font-bold" style="color: #FFB81C;">Recent Article</h1>
 
     <div class="blog-container">
 
-        <article class="blog-card">
+        <article class="blog-card" style="margin-left:120px;">
             <img src="{% static 'assets/images/blog1.jpg' %}" alt="blog" />
             <div class="blog-card-content">
-                <h2 class="title-font">Cities</h2>
-                <h1 class="title-font">This season, increased yield of honey</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <h2 class="title-font font-semibold">Cities</h2>
+                <h1 class="title-font font-semibold text-2xl">This season, increased yield of honey</h1>
+                <p class="font-semibold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
                 <div class="blog-card-footer">
-                    <span>Oct 30, 2022 · 9 min read</span>
-                    <span class="inline-flex items-center py-1 pr-3">
+                    <span class="font-semibold">Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3 font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -432,19 +441,21 @@
                         3.5K
                     </span>
                 </div>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <a href="#" style="background-color: #FEE29B; color: #333333; padding: 6px 4px; font-size: 0.75rem; border-radius: 4px; display: inline-block; text-align: center; width: 100px;" class="font-semibold">Learn More</a>
+
+
             </div>
         </article>
 
-        <article class="blog-card">
+        <article class="blog-card" style="margin-left:70px;">
             <img src="{% static 'assets/images/blog2.jpg' %}" alt="blog" />
             <div class="blog-card-content">
-                <h2 class="title-font">Cities</h2>
-                <h1 class="title-font">Our beekeepers begin to collect honey</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <h2 class="title-font font-semibold">Cities</h2>
+                <h1 class="title-font font-semibold text-2xl">Our beekeepers begin to collect honey</h1>
+                <p class="font-semibold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
                 <div class="blog-card-footer">
-                    <span>Oct 30, 2022 · 9 min read</span>
-                    <span class="inline-flex items-center py-1 pr-3">
+                    <span class="font-semibold">Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3 font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -452,19 +463,19 @@
                         3.5K
                     </span>
                 </div>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <a href="#" style="background-color: #FEE29B; color: #333333; padding: 6px 4px; font-size: 0.75rem; border-radius: 4px; display: inline-block; text-align: center; width: 100px;" class="font-semibold">Learn More</a>
             </div>
         </article>
 
-        <article class="blog-card">
+        <article class="blog-card" style="margin-left:70px;">
             <img src="{% static 'assets/images/blog3.jpg' %}" alt="blog" />
             <div class="blog-card-content">
-                <h2 class="title-font">Cities</h2>
-                <h1 class="title-font">Definitions of honey naturalness</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <h2 class="title-font font-semibold">Cities</h2>
+                <h1 class="title-font font-semibold text-2xl">Definitions of honey naturalness</h1>
+                <p class="font-semibold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
                 <div class="blog-card-footer">
-                    <span>Oct 30, 2022 · 9 min read</span>
-                    <span class="inline-flex items-center py-1 pr-3">
+                    <span class="font-semibold">Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3 font-semibold">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -472,33 +483,12 @@
                         3.5K
                     </span>
                 </div>
-                <a href="#" class="learn-more-btn">Learn More</a>
-            </div>
-        </article>
-
-        <article class="blog-card">
-            <img src="{% static 'assets/images/blog4.jpg' %}" alt="blog" />
-            <div class="blog-card-content">
-                <h2 class="title-font">Cities</h2>
-                <h1 class="title-font">How the honeybee makes honey in our apiaries</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
-                <div class="blog-card-footer">
-                    <span>Oct 30, 2022 · 9 min read</span>
-                    <span class="inline-flex items-center py-1 pr-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                        </svg>
-                        3.5K
-                    </span>
-                </div>
-                <a href="#" class="learn-more-btn">Learn More</a>
+                <a href="#" style="background-color: #FEE29B; color: #333333; padding: 6px 4px; font-size: 0.75rem; border-radius: 4px; display: inline-block; text-align: center; width: 100px;" class="font-semibold">Learn More</a>
             </div>
         </article>
 
     </div>
 </section>
-
 
 
 
