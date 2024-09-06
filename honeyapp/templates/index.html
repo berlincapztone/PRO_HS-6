@@ -633,63 +633,70 @@
 
 
 
-    <!-- Carousel Section -->
- 
-    <section class="relative overflow-hidden">
-        <div id="carousel" class="carousel">
-            <div class="carousel-inner owl-carousel">
-                <!-- Slide 1 -->
-                <div class="carousel-slide">
-                    <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-100 bg-cover bg-center relative">
-                        <div class="text-left mb-4 md:mb-0 md:w-1/2">
-                            <h2 class="text-2xl md:text-3xl text-yellow-600 uppercase mb-2 font-semibold">Pure Honey</h2>
-                            <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight font-semibold">From Hive to Home <span class="text-yellow-500">Naturally</span></h1>
-                            <p class="text-gray-700 mb-4 font-semibold">Focuses on the journey of honey from the hive directly to the consumer’s table, ensuring natural quality and purity every step of the way.</p>
-                            <div class="flex items-center space-x-4">
-                                <button class="bg-yellow-600 text-white px-4 py-2 text-lg rounded-full hover:bg-yellow-700 transition duration-300 ease-in-out">
-                                    Shop Now
-                                </button>
-                            </div>
+<section class="relative overflow-hidden">
+    <div id="carousel" class="carousel">
+        <div class="carousel-inner flex transition-transform duration-500">
+            <!-- Slide 1 -->
+            <div class="carousel-slide flex-shrink-0 w-full" style="background-image: url('{% static 'assets/images/' %}');">
+                <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-100 bg-cover bg-center relative">
+                    <div class="text-left mb-4 md:mb-0 md:w-1/2 ml-4 md:ml-8 lg:ml-16">
+                        <h2 class="text-xl md:text-2xl lg:text-3xl text-yellow-600 uppercase mb-2 font-semibold">Pure Honey</h2>
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-semibold">
+                            From Hive to Home, <span class="text-yellow-700"></span><br>
+                            <span class="text-yellow-500">Naturally</span>
+                        </h1>
+                        <p class="text-gray-700 mb-4 font-semibold text-base md:text-lg lg:text-xl">
+                            Focuses on the journey of honey from the hive directly to the consumer’s table, ensuring natural quality and purity every step of the way.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-yellow-600 text-white px-4 py-2 rounded-full text-sm md:text-base">Shop Now</button>
                         </div>
-                        <img src="{% static 'assets/images/cart (2).png'%}" alt="Honey Image" class="object-contain rounded-lg w-full md:w-1/2 h-64 sm:h-72 lg:h-80 mt-4 md:mt-0"/>
                     </div>
+                    <img src="{% static 'assets/images/hon cou.png' %}" alt="Honey Image" class="object-contain rounded-lg w-full md:w-1/2 h-56 md:h-72 lg:h-96"/>
                 </div>
-                
-                <!-- Slide 2 -->
-                <div class="carousel-slide">
-                    <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-100 bg-cover bg-center relative">
-                        <div class="text-left mb-4 md:mb-0 md:w-1/2">
-                            <h2 class="text-2xl md:text-3xl text-yellow-600 uppercase mb-2 font-semibold">Spices</h2>
-                            <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight font-semibold">A Little Bit Of <span class="text-yellow-500">Spices</span></h1>
-                            <p class="text-gray-700 mb-4 font-semibold">Spices create the essence of life. They have the power to transform a simple meal into a sensory experience.</p>
-                            <div class="flex items-center space-x-4">
-                                <button class="bg-yellow-600 text-white px-4 py-2 text-lg rounded-full hover:bg-yellow-700 transition duration-300 ease-in-out">
-                                    Shop Now
-                                </button>
-                            </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide flex-shrink-0 w-full" style="background-image: url('{% static 'assets/images/' %}');">
+                <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-200 bg-cover bg-center relative">
+                    <div class="text-left mb-4 md:mb-0 md:w-1/2 ml-4 md:ml-8 lg:ml-16">
+                        <h2 class="text-xl md:text-2xl lg:text-3xl text-yellow-600 uppercase mb-2 font-semibold">Spices</h2>
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-semibold">
+                            A Little Bit Of <br><span class="text-yellow-500">Spices</span>
+                        </h1>
+                        <p class="text-gray-700 mb-4 font-semibold text-base md:text-lg lg:text-xl">
+                            Spices create the essence of life. They have the power to transform a simple meal into a sensory experience.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-yellow-600 text-white px-4 py-2 rounded-full text-sm md:text-base">Shop Now</button>
                         </div>
-                        <img src="{% static 'assets/images/Untitled-design-2021-10-05T223517.072-qq9dw0vzayz9obuo6i3njzvemqmob403airbzznlfk.webp'%}" alt="spice Image" class="object-contain rounded-lg w-full md:w-1/2 h-64 sm:h-72 lg:h-80 mt-4 md:mt-0"/>
                     </div>
+                    <img src="{% static 'assets/images/spices cou.png' %}" alt="Spices Image" class="object-contain rounded-lg w-full md:w-1/2 h-56 md:h-72 lg:h-96"/>
                 </div>
-                
-                <!-- Slide 3 -->
-                <div class="carousel-slide">
-                    <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-300 bg-cover bg-center relative">
-                        <div class="text-left mb-4 md:mb-0 md:w-1/2">
-                            <h2 class="text-2xl md:text-3xl text-yellow-600 uppercase mb-2 font-semibold">Coconuts</h2>
-                            <h1 class="text-3xl md:text-5xl font-bold mb-4 font-semibold">Coconuts <span class="text-yellow-500">The tree of Life</span></h1>
-                            <p class="text-gray-700 mb-4 font-semibold">Savor the rich flavors of honey produced with care by our hardworking bees.</p>
-                            <div class="flex items-center space-x-4">
-                                <button class="bg-yellow-600 text-white px-4 py-2 rounded-full">Shop Now</button>
-                            </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide flex-shrink-0 w-full" style="background-image: url('{% static 'assets/images/' %}');">
+                <div class="content-wrapper flex flex-col md:flex-row items-center justify-between p-4 md:p-10 bg-yellow-300 bg-cover bg-center relative">
+                    <div class="text-left mb-4 md:mb-0 md:w-1/2 ml-4 md:ml-8 lg:ml-16">
+                        <h2 class="text-xl md:text-2xl lg:text-3xl text-yellow-600 uppercase mb-2 font-semibold">Coconuts</h2>
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-semibold">
+                            Coconuts <br>The tree <span class="text-yellow-500">of Life</span>
+                        </h1>
+                        <p class="text-gray-700 mb-4 font-semibold text-base md:text-lg lg:text-xl">
+                            Savor the rich flavors of honey produced with care by our hardworking bees.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-yellow-600 text-white px-4 py-2 rounded-full text-sm md:text-base">Shop Now</button>
                         </div>
-                        <img src="{% static 'assets/images/glass-bottle-coconut-oil-with-broken-coconut-shells-coconut-shavings-white-background_1058532-26122.avif' %}" alt="Coconuts Image" class="object-contain rounded-lg w-full md:w-1/2 h-64 sm:h-72 lg:h-80 mt-4"/>
                     </div>
+                    <img src="{% static 'assets/images/coc cou.png' %}" alt="Coconut Image" class="object-contain rounded-lg w-full md:w-1/2 h-56 md:h-72 lg:h-96"/>
                 </div>
             </div>
         </div>
-    </section>
-    
+    </div>
+</section>
+
 
 
 <div class="container mx-auto p-8">
@@ -824,7 +831,7 @@
                 <!-- 4:3 aspect ratio for better fit, or adjust/remove as needed -->
                 <div class="ratio ratio-4x3">
                     <video style="width: 100%; height: auto;" controls> <!-- Manual width/height -->
-                        <source src="{% static 'assets/video/champ (1).mp4' %}" type="video/mp4">
+                        <source src="{% static 'assets/video/Media1.mp4' %}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -890,70 +897,71 @@
 <section class="w-screen py-20">
     <h1 class="mb-12 text-center font-sans text-5xl font-bold" style="color: #FFB81C;">Recent Article</h1>
 
-    <div class="blog-container">
+    <div class="blog-container flex justify-center">
 
-        <article class="blog-card" style="margin-left:120px;">
+        <article class="blog-card" style="margin-left:120px; background-color: #FFF7E1;">
             <img src="{% static 'assets/images/blog1.jpg' %}" alt="blog" />
-            <div class="blog-card-content">
-                <h2 class="title-font font-semibold">Cities</h2>
-                <h1 class="title-font font-semibold text-2xl">This season, increased yield of honey</h1>
-                <p class="font-semibold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
-                <div class="blog-card-footer">
-                    <span class="font-semibold">Oct 30, 2022 · 9 min read</span>
-                    <span class="inline-flex items-center py-1 pr-3 font-semibold">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="blog-card-content p-6">
+                <h2 class="title-font font-semibold text-yellow-600">Cities</h2>
+                <h1 class="title-font font-semibold text-2xl text-yellow-800">This season, increased yield of honey</h1>
+                <p class="font-semibold text-yellow-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <div class="blog-card-footer flex justify-between items-center mt-4">
+                    <span class="font-semibold text-yellow-600">Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3 font-semibold text-yellow-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                         </svg>
                         3.5K
                     </span>
                 </div>
-                <a href="#" class="learn-more-btn font-semibold">Learn More</a>
+                <a href="#" style="background-color: #FEE29B; color: #333333; padding: 6px 4px; font-size: 0.75rem; border-radius: 4px; display: inline-block; text-align: center; width: 100px;" class="font-semibold">Learn More</a>
             </div>
         </article>
 
-        <article class="blog-card" style="margin-left:70px;">
+        <article class="blog-card" style="margin-left:70px; background-color: #FFF7E1;">
             <img src="{% static 'assets/images/blog2.jpg' %}" alt="blog" />
-            <div class="blog-card-content">
-                <h2 class="title-font font-semibold">Cities</h2>
-                <h1 class="title-font font-semibold text-2xl">Our beekeepers begin to collect honey</h1>
-                <p class="font-semibold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
-                <div class="blog-card-footer">
-                    <span class="font-semibold">Oct 30, 2022 · 9 min read</span>
-                    <span class="inline-flex items-center py-1 pr-3 font-semibold">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="blog-card-content p-6">
+                <h2 class="title-font font-semibold text-yellow-600">Cities</h2>
+                <h1 class="title-font font-semibold text-2xl text-yellow-800">Our beekeepers begin to collect honey</h1>
+                <p class="font-semibold text-yellow-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <div class="blog-card-footer flex justify-between items-center mt-4">
+                    <span class="font-semibold text-yellow-600">Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3 font-semibold text-yellow-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                         </svg>
                         3.5K
                     </span>
                 </div>
-                <a href="#" class="learn-more-btn font-semibold">Learn More</a>
+                <a href="#" style="background-color: #FEE29B; color: #333333; padding: 6px 4px; font-size: 0.75rem; border-radius: 4px; display: inline-block; text-align: center; width: 100px;" class="font-semibold">Learn More</a>
             </div>
         </article>
 
-        <article class="blog-card" style="margin-left:70px;">
+        <article class="blog-card" style="margin-left:70px; background-color: #FFF7E1;">
             <img src="{% static 'assets/images/blog3.jpg' %}" alt="blog" />
-            <div class="blog-card-content">
-                <h2 class="title-font font-semibold">Cities</h2>
-                <h1 class="title-font font-semibold text-2xl">Definitions of honey naturalness</h1>
-                <p class="font-semibold">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
-                <div class="blog-card-footer">
-                    <span class="font-semibold">Oct 30, 2022 · 9 min read</span>
-                    <span class="inline-flex items-center py-1 pr-3 font-semibold">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="blog-card-content p-6">
+                <h2 class="title-font font-semibold text-yellow-600">Cities</h2>
+                <h1 class="title-font font-semibold text-2xl text-yellow-800">Definitions of honey naturalness</h1>
+                <p class="font-semibold text-yellow-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil, maxime. Accusamus qui incidunt est rem at corrupti, earum fugiat iure.</p>
+                <div class="blog-card-footer flex justify-between items-center mt-4">
+                    <span class="font-semibold text-yellow-600">Oct 30, 2022 · 9 min read</span>
+                    <span class="inline-flex items-center py-1 pr-3 font-semibold text-yellow-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                         </svg>
                         3.5K
                     </span>
                 </div>
-                <a href="#" class="learn-more-btn font-semibold">Learn More</a>
+                <a href="#" style="background-color: #FEE29B; color: #333333; padding: 6px 4px; font-size: 0.75rem; border-radius: 4px; display: inline-block; text-align: center; width: 100px;" class="font-semibold">Learn More</a>
             </div>
         </article>
 
     </div>
 </section>
+
 
 
 
@@ -1007,7 +1015,7 @@
 
 <section class="py-12">
     <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-semibold text-yellow-600">We Believe In</h2>
+        <h2 class="text-3xl md:text-2xl font-semibold text-yellow-600">We Believe In</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
         <!-- Card 1 -->
@@ -1036,10 +1044,66 @@
 
 
 
-  
- 
+<div class="bg-white p-10 rounded-lg max-w-4xl w-full mx-auto">
+    <!-- Title -->
+    <h2 class="text-center text-4xl font-bold text-yellow-700 mb-10">HOW TO USE</h2>
 
-   
+    <!-- Circle Layout -->
+    <div class="relative flex justify-center items-center">
+        <!-- Central Image -->
+        <div class="w-48 h-48 rounded-full bg-yellow-200 flex justify-center items-center relative z-10">
+            <img src="{% static 'assets/images/hon cou.png' %}" alt="Honey Dipper" class="w-40 h-40 rounded-full object-cover">
+        </div>
+
+        <!-- Surrounding Images in a Circular Pattern -->
+        <div class="absolute inset-0 flex justify-center items-center">
+            <div class="relative w-full h-full">
+                <!-- Surrounding items in a circle -->
+                <!-- Define the number of steps and their spacing -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-2 rotate-0">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-full flex justify-center items-center">
+                        <img src="{% static 'assets/images/hon cou.png' %}" alt="Step 1" class="w-10 h-10">
+                    </div>
+                    <p class="text-center text-sm text-gray-700 mt-2">Add 1 tsp of honey with 1 tsp of lemon in 1 glass of warm water</p>
+                </div>
+
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-72 translate-x-1/2">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-full flex justify-center items-center">
+                        <img src="{% static 'assets/images/hon cou.png' %}" alt="Step 2" class="w-10 h-10">
+                    </div>
+                    <p class="text-center text-sm text-gray-700 mt-2">Add 1 tsp of honey in herbal tea</p>
+                </div>
+
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-144 translate-x-1/2">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-full flex justify-center items-center">
+                        <img src="{% static 'assets/images/hon cou.png' %}" alt="Step 3" class="w-10 h-10">
+                    </div>
+                    <p class="text-center text-sm text-gray-700 mt-2">Add 1 tsp of honey as a salad dressing</p>
+                </div>
+
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-216 -translate-x-1/2">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-full flex justify-center items-center">
+                        <img src="{% static 'assets/images/hon cou.png' %}" alt="Step 4" class="w-10 h-10">
+                    </div>
+                    <p class="text-center text-sm text-gray-700 mt-2">Add 1 tsp of honey in lemon water for detox</p>
+                </div>
+
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-288 -translate-x-1/2">
+                    <div class="w-20 h-20 bg-yellow-50 rounded-full flex justify-center items-center">
+                        <img src="{% static 'assets/images/hon cou.png' %}" alt="Step 5" class="w-10 h-10">
+                    </div>
+                    <p class="text-center text-sm text-gray-700 mt-2">Mix 3 tbsp of honey in olive oil for a dressing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+  
 
 <section id="contact" class="section py-5">
     <!-- Container Starts -->
